@@ -1698,7 +1698,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1954,6 +1954,7 @@ GameObject:
   - component: {fileID: 1430072628}
   - component: {fileID: 1430072627}
   - component: {fileID: 1430072630}
+  - component: {fileID: 1430072631}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2069,6 +2070,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1430072631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430072626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31da408e0fb6848b4d4e1b50742ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseGame: {fileID: 1987656454}
 --- !u!1001 &1439192101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2658,7 +2672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   moveInput: {x: 0, y: 0, z: 0}
-  PauseGame: {fileID: 0}
 --- !u!212 &1784026993
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -31,5 +31,8 @@ public class Pause_menu : MonoBehaviour
 #endif
 
     }
-
+    public void Menu_return()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }

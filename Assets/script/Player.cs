@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Vector3 moveInput;
     private Rigidbody2D _rigidbody2D;
 
-    public GameObject PauseGame;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0f;
-            PauseGame.SetActive(true);
-        }
     }
     private void Move()
     {
@@ -45,5 +40,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
 }

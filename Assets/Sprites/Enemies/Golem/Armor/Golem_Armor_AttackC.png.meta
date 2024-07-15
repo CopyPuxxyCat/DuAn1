@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 146
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140862f187f40e34a997400231522cc1
+      internalID: -1814016580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 146
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab043acb8b9d1a4194ed4a9bcc11654
+      internalID: 1702607010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 146
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce01640e2614aab45b967298ba434e53
+      internalID: -940627652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 145
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ace58e740988a4fa7b011309ecd225
+      internalID: -727076360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 81
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537f5edc21f847b4cae493d4db11d5bb
+      internalID: 656561106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 81
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea34cf4e92775514f9a8a0338582fecb
+      internalID: 494955940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_6
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 81
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d44c3d8d2d5924eaaca09956787289
+      internalID: 773566917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_7
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 81
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5986a2adf749a8d40b75fdd826d3bd35
+      internalID: -1929503348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 17
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f1442f4fc7a1a41aed833207efc08d
+      internalID: 1190828016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_AttackC_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 18
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 111db1b48d251a24a874655278fc7b26
+      internalID: -1826910904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +329,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_Armor_AttackC_0: -1814016580
+      Golem_Armor_AttackC_1: 1702607010
+      Golem_Armor_AttackC_2: -940627652
+      Golem_Armor_AttackC_3: -727076360
+      Golem_Armor_AttackC_4: 656561106
+      Golem_Armor_AttackC_5: 494955940
+      Golem_Armor_AttackC_6: 773566917
+      Golem_Armor_AttackC_7: -1929503348
+      Golem_Armor_AttackC_8: 1190828016
+      Golem_Armor_AttackC_9: -1826910904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

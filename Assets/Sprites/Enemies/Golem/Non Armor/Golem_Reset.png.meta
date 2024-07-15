@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_Reset_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 81
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813d44f2e97be4944b1b07706ae4212c
+      internalID: 1150341556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 80
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77bbf5027f4a01499befb8fe61b6e7e
+      internalID: -1330722736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 80
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fa2915f48607e4fb7964d5fe3bd1f4
+      internalID: -352611801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 80
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7e503cc7fdef84c8740213405f9dc6
+      internalID: 1879464508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 17
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38035939a76c7904389de1acc2e42b5f
+      internalID: -1405952418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 17
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd12c354f52fc2040be5c721f0335189
+      internalID: 314361279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Reset_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 16
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018ec64c5879c7348980b1acdf6fb724
+      internalID: -997242424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +266,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_Reset_0: 1150341556
+      Golem_Reset_1: 41765320
+      Golem_Reset_10: -176477326
+      Golem_Reset_11: 336837842
+      Golem_Reset_2: -1330722736
+      Golem_Reset_3: -352611801
+      Golem_Reset_4: 1879464508
+      Golem_Reset_5: 1646278972
+      Golem_Reset_6: -1405952418
+      Golem_Reset_7: 2083279481
+      Golem_Reset_8: 314361279
+      Golem_Reset_9: -997242424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

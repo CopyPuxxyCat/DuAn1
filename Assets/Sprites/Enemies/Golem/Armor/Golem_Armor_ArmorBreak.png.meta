@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_Armor_ArmorBreak_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 82
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2714122967f1b4e8ba2027afe175fa
+      internalID: 1580716137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_ArmorBreak_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 81
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce57026a0db05546a45edbb3355460a
+      internalID: -1107344304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_ArmorBreak_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3017b1b1bfb304f41bd9dfe7c527e6eb
+      internalID: -1905780827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_ArmorBreak_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 81
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db032a2704782eb47b7151a6dcf4d523
+      internalID: 1378473159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Armor_ArmorBreak_4
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 18
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117ea0d74b75ca540ba9967cd738fcb8
+      internalID: 524987228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_Armor_ArmorBreak_0: 1580716137
+      Golem_Armor_ArmorBreak_1: -1107344304
+      Golem_Armor_ArmorBreak_2: -1905780827
+      Golem_Armor_ArmorBreak_3: 1378473159
+      Golem_Armor_ArmorBreak_4: 524987228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

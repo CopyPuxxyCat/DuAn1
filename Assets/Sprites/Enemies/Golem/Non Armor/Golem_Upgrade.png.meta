@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_Upgrade_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 145
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcca21060ba1fd740982a98e1c33ce41
+      internalID: 800849872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9208468a95c6564e9c0ecb80ea841ab
+      internalID: 1059765760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 145
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9ab31e0f3cf314fa525c918c02d7d1
+      internalID: 1464115156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_7
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 145
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e757622ec02d544864217840ad2fb3
+      internalID: 1091412754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 81
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516e627309640294c81270981147c3e0
+      internalID: -911647332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_12
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 81
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a113a29b485564a93ca764c811b110
+      internalID: -1436522717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_13
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 81
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038728996b04edd4fa3b938bb79ffce4
+      internalID: -1333311786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_14
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 81
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bba6cd4b89fd145b588632cbe644be
+      internalID: -1309540504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_15
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 17
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038dea29599c15b47bf00da6a34352a5
+      internalID: -1222609500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_16
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 18
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5707501e6264f2147bdf282a4e952cd5
+      internalID: -2039699640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Upgrade_17
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 17
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b4d67f6824e164ca1db4b77fc63751
+      internalID: -1115305439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_Upgrade_0: 1459636994
+      Golem_Upgrade_1: 800849872
+      Golem_Upgrade_10: -296682716
+      Golem_Upgrade_11: -911647332
+      Golem_Upgrade_12: -1436522717
+      Golem_Upgrade_13: -1333311786
+      Golem_Upgrade_14: -1309540504
+      Golem_Upgrade_15: -1222609500
+      Golem_Upgrade_16: -2039699640
+      Golem_Upgrade_17: -1115305439
+      Golem_Upgrade_2: -1284678506
+      Golem_Upgrade_3: -572826972
+      Golem_Upgrade_4: 1059765760
+      Golem_Upgrade_5: -913606848
+      Golem_Upgrade_6: 1464115156
+      Golem_Upgrade_7: 1091412754
+      Golem_Upgrade_8: -1575783528
+      Golem_Upgrade_9: -1617230216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

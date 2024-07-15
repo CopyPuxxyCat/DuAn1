@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_HitB_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 82
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e005c99c7492a554289cbcbd371e7c9b
+      internalID: 1223145664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_HitB_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 81
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7771c8dfefee83041847e1d896032163
+      internalID: 1389995609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_HitB_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 80
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a70309bcc51fd84da5b49346a454b53
+      internalID: 1054910267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_HitB_6
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 81
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e75a47454d7994faf636a797ee581c
+      internalID: 1604713866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_HitB_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72fbac366457f7e4e9ff41951551ffe1
+      internalID: 1614583946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_HitB_0: 1223145664
+      Golem_HitB_1: 1176086212
+      Golem_HitB_10: 1614583946
+      Golem_HitB_11: -229680371
+      Golem_HitB_12: 915258671
+      Golem_HitB_2: 1389995609
+      Golem_HitB_3: -205730919
+      Golem_HitB_4: 1054910267
+      Golem_HitB_5: 904407134
+      Golem_HitB_6: 1604713866
+      Golem_HitB_7: 172224220
+      Golem_HitB_8: 1396004852
+      Golem_HitB_9: -1757768800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

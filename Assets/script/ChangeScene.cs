@@ -22,7 +22,7 @@ public class ChangeScene : MonoBehaviour
     {
         if(load >= 100)
         {
-            SceneManager.LoadScene("Level0");
+            SceneManager.LoadScene("Scene0");
         }
     }
     public void play()

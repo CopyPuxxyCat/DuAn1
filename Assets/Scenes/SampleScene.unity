@@ -447,11 +447,10 @@ MonoBehaviour:
   minimap: {fileID: 1475387038}
   Darkness: {fileID: 884135680}
   monsters:
-  - {fileID: 2415336846041312173, guid: 99d6eec5cc55d314199c7518059b8cd1, type: 3}
+  - {fileID: 5186326097750952161, guid: c3cc1b0fd7149be43a7bc6fd91b84388, type: 3}
   - {fileID: 2415336846041312173, guid: 99d6eec5cc55d314199c7518059b8cd1, type: 3}
   decorations:
-  - {fileID: 2415336846041312173, guid: 99d6eec5cc55d314199c7518059b8cd1, type: 3}
-  - {fileID: 2415336846041312173, guid: 99d6eec5cc55d314199c7518059b8cd1, type: 3}
+  - {fileID: 8000868335123175926, guid: dba2232b4c5f8dc4cabad639c8e70579, type: 3}
 --- !u!4 &619923466
 Transform:
   m_ObjectHideFlags: 0

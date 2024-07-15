@@ -455,7 +455,7 @@ public class BoardManager : MonoBehaviour {
                     0f
                 );
 
-                float spacing = Mathf.Min(roomWidth, roomHeight) / (float)(numberOfMonsters + 1);
+                float spacing = 0.6f + Mathf.Min(roomWidth, roomHeight) / (float)(numberOfMonsters + 1);
 
                 // Place monsters with a certain distance from each other
                 for (int i = 0; i < numberOfMonsters; i++)

@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    private bool enterAllowed;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            enterAllowed = true;
+            Debug.Log("Cham");
             // Load a new scene when the player enters the door
-            SceneManager.LoadScene("SampleScene");
+            
         }
     }
     // Start is called before the first frame update
@@ -22,6 +25,9 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (enterAllowed == true)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }

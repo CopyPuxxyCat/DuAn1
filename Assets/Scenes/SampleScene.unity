@@ -448,8 +448,11 @@ MonoBehaviour:
   Darkness: {fileID: 884135680}
   monsters:
   - {fileID: 5186326097750952161, guid: c3cc1b0fd7149be43a7bc6fd91b84388, type: 3}
-  - {fileID: 2415336846041312173, guid: 99d6eec5cc55d314199c7518059b8cd1, type: 3}
   - {fileID: 7781342363098109542, guid: 1ee2644343d739341bd212d3a27bac5b, type: 3}
+  - {fileID: 4865149521243320196, guid: 3efc84c352e44f54aac50b8c1e04675e, type: 3}
+  - {fileID: 4262501630647036460, guid: ba82c64017acebe45a09ee3c483639f8, type: 3}
+  - {fileID: 5725852735131841406, guid: 0a29e2bb220066e4b8d67f0d87d2feab, type: 3}
+  - {fileID: 4681165332128583590, guid: 70781c1e255b07a4ea6f8f81b2036575, type: 3}
   decorations:
   - {fileID: 8000868335123175926, guid: dba2232b4c5f8dc4cabad639c8e70579, type: 3}
 --- !u!4 &619923466

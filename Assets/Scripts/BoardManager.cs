@@ -447,7 +447,7 @@ public class BoardManager : MonoBehaviour {
                 int roomHeight = (int)subdungeon.room.height;
 
                 // Calculate the number of monsters based on room size
-                int numberOfMonsters = Mathf.Max(1, roomWidth * roomHeight / 60);
+                int numberOfMonsters = Mathf.Max(1, 2);
 
                 Vector3 roomCenter = new Vector3(
                     subdungeon.room.x + subdungeon.room.width / 2,

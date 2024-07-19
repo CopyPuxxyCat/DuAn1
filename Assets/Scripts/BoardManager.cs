@@ -447,7 +447,7 @@ public class BoardManager : MonoBehaviour {
                 int roomHeight = (int)subdungeon.room.height;
 
                 // Calculate the number of monsters based on room size
-                int numberOfMonsters = Mathf.Max(1, 2);
+                int numberOfMonsters = Mathf.Max(1, 3);
 
                 Vector3 roomCenter = new Vector3(
                     subdungeon.room.x + subdungeon.room.width / 2,
@@ -489,7 +489,7 @@ public class BoardManager : MonoBehaviour {
 
         if (subdungeon.isLeaf())
         {
-            for (int i = 0; i < 5; i++) // number of decorations per room, adjust as needed
+            for (int i = 0; i < 1; i++) // number of decorations per room, adjust as needed
             {
                 Vector3 decorationPosition = new Vector3(
                     Random.Range(subdungeon.room.x + 1, subdungeon.room.xMax - 1),

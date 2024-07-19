@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tp
   - enemy
+  - Canvas
   layers:
   - Default
   - TransparentFX

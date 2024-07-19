@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Vector3 moveInput;
     private Rigidbody2D _rigidbody2D;
 
-    public int health = 100;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -39,22 +39,5 @@ public class Player : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 0);
             }
         }
-    }
-    public void Damage(int damageAmount)
-    {
-        health -= damageAmount;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    
-    private void Die()
-    {
-      
-        Debug.Log("Player has died.");
-        
-        Destroy(gameObject);
     }
 }

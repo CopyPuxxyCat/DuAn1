@@ -430,10 +430,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48b8e55a995c434ba59112fde295400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 50
-  columns: 50
-  minRoomSize: 8
-  maxRoomSize: 12
+  rows: 40
+  columns: 40
+  minRoomSize: 6
+  maxRoomSize: 8
   floorTiles:
   - {fileID: 1327147815627326, guid: 6641938c8d16e3748a2aa5fa1ba16b46, type: 3}
   - {fileID: 1745200136841128, guid: d02725396ae598446851ba6eba5dc517, type: 3}
@@ -455,7 +455,7 @@ MonoBehaviour:
   monsters:
   - {fileID: 6731288878110951796, guid: 83f0f8d9cfb1b314f8c0ac46b2df7333, type: 3}
   decorations:
-  - {fileID: 8000868335123175926, guid: dba2232b4c5f8dc4cabad639c8e70579, type: 3}
+  - {fileID: 9216405887785776815, guid: d06146b0d3cf4b846b7610d17f6c15f9, type: 3}
 --- !u!4 &619923466
 Transform:
   m_ObjectHideFlags: 0

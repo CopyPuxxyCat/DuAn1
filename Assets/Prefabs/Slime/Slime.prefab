@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 646210489230855289, guid: a9e32ae3c9296c34193ef0c85db19232, type: 3}
-  disableSimulation: 0
+  disableSimulation: 1
   invincibleTime: 0.25
   isInvincibleEnable: 0
   _invincible: 0

@@ -489,7 +489,7 @@ public class BoardManager : MonoBehaviour {
 
         if (subdungeon.isLeaf())
         {
-            for (int i = 0; i < 5; i++) // number of decorations per room, adjust as needed
+            for (int i = 0; i < 1; i++) // number of decorations per room, adjust as needed
             {
                 Vector3 decorationPosition = new Vector3(
                     Random.Range(subdungeon.room.x + 1, subdungeon.room.xMax - 1),

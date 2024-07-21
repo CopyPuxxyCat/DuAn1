@@ -44,7 +44,7 @@ public class swordHitBox : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("collider does not implement IDamageable!");
+            
         }
 
     }

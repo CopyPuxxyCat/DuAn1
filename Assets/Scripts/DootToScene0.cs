@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Door : MonoBehaviour
+public class DootToScene0 : MonoBehaviour
 {
     private bool enterAllowed;
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,13 +13,13 @@ public class Door : MonoBehaviour
             enterAllowed = true;
             Debug.Log("Cham");
             // Load a new scene when the player enters the door
-            
+
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class Door : MonoBehaviour
     {
         if (enterAllowed == true)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Level0");
         }
     }
 }

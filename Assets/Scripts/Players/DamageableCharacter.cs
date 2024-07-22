@@ -14,6 +14,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     private float invincibleElapsed = 0f;
 
+    private int totalKill;
+
     Animator animator;
 
     Collider2D physicCollider;
@@ -128,6 +130,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
+        totalKill += 1;
+        Debug.Log("da giet" + totalKill);
     }
 
     public void FixedUpdate()

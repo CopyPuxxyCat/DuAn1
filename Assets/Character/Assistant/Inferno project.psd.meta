@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c10978de7d7cae40aa23bb2ad3dd4db
+guid: 72e7fd5df154db349885ba96302b4913
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hollow Tear
+      name: Inferno project
       rect:
         serializedVersion: 2
-        x: 42
-        y: 25
-        width: 103
-        height: 115
+        x: 912
+        y: 528
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad58bfc655bae3c40835f7a22a72971a
-      internalID: -570382595
+      spriteID: fe123f83cec709e4ea13d47c08655d72
+      internalID: -124886199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image-removebg-preview (1)_1
+      name: Inferno project_1
       rect:
         serializedVersion: 2
-        x: 189
-        y: 25
-        width: 90
-        height: 115
+        x: 943
+        y: 528
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe983be5a2585584184d62cb7d0dd24f
-      internalID: -941286221
+      spriteID: 7767b12d6c510f042abc63bfe78837b6
+      internalID: 1292215217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image-removebg-preview (1)_2
+      name: Inferno project_2
       rect:
         serializedVersion: 2
-        x: 335
-        y: 25
-        width: 73
-        height: 115
+        x: 969
+        y: 528
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0ba65360d05a054d82f3e5588ca5c54
-      internalID: 566476544
+      spriteID: 56926d76537f75641b4c33e9ba22ef3d
+      internalID: -376782950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image-removebg-preview (1)_3
+      name: Inferno project_3
       rect:
         serializedVersion: 2
-        x: 477
-        y: 25
-        width: 60
-        height: 115
+        x: 995
+        y: 528
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,92 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c81276faee650f4b84b1e630e4b1c2b
-      internalID: -2107037217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image-removebg-preview (1)_4
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 26
-        width: 78
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71e79d9e135eb804da2dffe797609249
-      internalID: -1469638006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image-removebg-preview (1)_5
-      rect:
-        serializedVersion: 2
-        x: 765
-        y: 26
-        width: 60
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 446c056e79fab1745b42511b70e484d0
-      internalID: 1983000077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image-removebg-preview (1)_6
-      rect:
-        serializedVersion: 2
-        x: 894
-        y: 27
-        width: 72
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db4e9a4ed25989a4aaf5b8b380054e71
-      internalID: -618193730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image-removebg-preview (1)_7
-      rect:
-        serializedVersion: 2
-        x: 1026
-        y: 26
-        width: 90
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe3957c68b4d9fd459e429226525bfdc
-      internalID: -1734452076
+      spriteID: bd0a31804f5713b49bf66317340a6b7f
+      internalID: -1612394211
       vertices: []
       indices: 
       edges: []
@@ -288,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hollow Tear: -570382595
-      image-removebg-preview (1)_1: -941286221
-      image-removebg-preview (1)_2: 566476544
-      image-removebg-preview (1)_3: -2107037217
-      image-removebg-preview (1)_4: -1469638006
-      image-removebg-preview (1)_5: 1983000077
-      image-removebg-preview (1)_6: -618193730
-      image-removebg-preview (1)_7: -1734452076
+      Inferno project: -124886199
+      Inferno project_1: 1292215217
+      Inferno project_2: -376782950
+      Inferno project_3: -1612394211
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b951f41c660816545a04bc11387921f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 300
-  maxSpeed: 400
+  moveSpeed: 150
+  maxSpeed: 180
   canMove: 1
   idleFriction: 1
   swordHitBox: {fileID: 3875183783897197030}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,8 @@ public class Player_Controller : MonoBehaviour
             animator.SetBool("isMoving", isMoving);
         }
     }
-
+    public bool showshop;
+    public GameObject panel;
     public float moveSpeed = 50f;
     public float maxSpeed = 4f;
     public bool canMove = true;
@@ -43,9 +45,19 @@ public class Player_Controller : MonoBehaviour
     }
 
     private void Update()
-    {                
+    {
+        if (showshop && Input.GetKey(KeyCode.E))
+        {
+            panel.SetActive(true);
+        }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("shop"))
+        {
+            showshop = true;
+        }
+    }
     private void FixedUpdate()
     {
         // if movement input != 0, try to move

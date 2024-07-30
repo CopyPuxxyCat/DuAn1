@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class attackArea : MonoBehaviour
 {
-    private int damage = 3;
+    //private int damage = 3;
     // Start is called before the first frame update
     void Start()
     {

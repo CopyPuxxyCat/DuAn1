@@ -47,6 +47,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
                 // tat slime
                 targetAble = false;
+                // hien panel gameover
             }
         }
         get

@@ -23,6 +23,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     Rigidbody2D rb;
 
     bool isAlive = true;
+
+    public GameObject GameOver;
     public float Health
     {
         set
@@ -47,6 +49,9 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
                 // tat slime
                 targetAble = false;
+                // hien panel gameover
+                Time.timeScale = 0f;
+                GameOver.SetActive(true);
             }
         }
         get

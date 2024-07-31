@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_Controller : MonoBehaviour
+public class TestDash : MonoBehaviour
 {
+    // Các biến hiện có
     bool IsMoving
     {
         set
@@ -28,12 +29,16 @@ public class Player_Controller : MonoBehaviour
     Rigidbody2D rb;
 
     bool isMoving = false;
-
     Animator animator;
 
-   
+    // Các biến dash mới
+    public float dashSpeed = 10f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private bool isDashing = false;
+    private float dashTime = 0f;
+    private float dashCooldownTime = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,61 +48,71 @@ public class Player_Controller : MonoBehaviour
     }
 
     private void Update()
-    {                
+    {
+        // Kiểm tra thời gian cooldown của dash
+        if (dashCooldownTime > 0)
+        {
+            dashCooldownTime -= Time.deltaTime;
+        }
+
+        // Kiểm tra nếu đang trong dash
+        if (isDashing)
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime <= 0)
+            {
+                isDashing = false;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0)
+        {
+            StartDash();
+        }
     }
 
     private void FixedUpdate()
     {
-        // if movement input != 0, try to move
-        if(canMove == true && movementInput != Vector2.zero)
+        // Không di chuyển khi đang dash
+        if (isDashing)
         {
-            // this dont allow player to run faster than the max speed
-            //rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
+            return;
+        }
 
+        if (canMove && movementInput != Vector2.zero)
+        {
             rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
 
-            if(rb.velocity.magnitude > maxSpeed)
+            if (rb.velocity.magnitude > maxSpeed)
             {
                 float limitedSpeed = Mathf.Lerp(rb.velocity.magnitude, maxSpeed, idleFriction);
                 rb.velocity = rb.velocity.normalized * limitedSpeed;
             }
 
-            // control whether looking left or right
-            if(movementInput.x > 0)
+            if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
-                
-                // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", true);
-            } else if(movementInput.x < 0)
+            }
+            else if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
-                
-                // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", false);
             }
 
             IsMoving = true;
         }
-        else {
-            // no movement so interpolate velocity toward 0
+        else
+        {
             rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
-
             IsMoving = false;
         }
-
-        
-        
     }
 
-    
-    // get input value for player movement
     void OnMove(InputValue value)
     {
         movementInput = value.Get<Vector2>();
     }
 
-    // slash
     void OnFire()
     {
         animator.SetTrigger("swordAttack");
@@ -112,5 +127,19 @@ public class Player_Controller : MonoBehaviour
     {
         canMove = true;
     }
-    
+
+    void StartDash()
+    {
+        isDashing = true;
+        dashTime = dashDuration;
+        dashCooldownTime = dashCooldown;
+
+        Vector2 dashDirection = movementInput.normalized;
+        if (dashDirection == Vector2.zero)
+        {
+            dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+        }
+        //rb.velocity = Vector2.Lerp(dashDirection * dashSpeed, Vector2.zero, idleFriction);
+        rb.velocity = dashDirection * dashSpeed;
+    }
 }

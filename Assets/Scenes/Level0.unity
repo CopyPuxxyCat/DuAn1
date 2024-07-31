@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 1177719676}
   - component: {fileID: 1177719675}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2072,7 +2072,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1177719676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1526096881}
+        m_TargetAssemblyTypeName: Pause_menu, Assembly-CSharp
+        m_MethodName: back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1177719676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27098,6 +27110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2839185810910421696, guid: eedf473223c180f4692ab315172fa732, type: 3}
+      propertyPath: Panel
+      value: 
+      objectReference: {fileID: 598005840}
     - target: {fileID: 2839185810910421696, guid: eedf473223c180f4692ab315172fa732, type: 3}
       propertyPath: PauseGame
       value: 

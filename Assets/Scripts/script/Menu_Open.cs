@@ -10,7 +10,7 @@ public class Menu_Open : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
             PauseGame.SetActive(true);
         }
     }

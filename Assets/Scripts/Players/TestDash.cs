@@ -15,8 +15,8 @@ public class TestDash : MonoBehaviour
         }
     }
 
-    public float moveSpeed = 50f;
-    public float maxSpeed = 4f;
+    public float moveSpeed = 150f;
+    public float maxSpeed = 180f;
     public bool canMove = true;
     public float idleFriction = 0.9f;
 
@@ -33,11 +33,13 @@ public class TestDash : MonoBehaviour
 
     // Các biến dash mới
     public float dashSpeed = 10f;
-    public float dashDuration = 0.2f;
+    public float dashDuration = 0.4f;
     public float dashCooldown = 1f;
     private bool isDashing = false;
     private float dashTime = 0f;
     private float dashCooldownTime = 0f;
+
+    private float timeToWait = 0.7f;
 
     void Start()
     {
@@ -62,11 +64,13 @@ public class TestDash : MonoBehaviour
             if (dashTime <= 0)
             {
                 isDashing = false;
+                
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0)
         {
             StartDash();
+            StartCoroutine(WaitAndPrint());
         }
     }
 
@@ -108,6 +112,14 @@ public class TestDash : MonoBehaviour
         }
     }
 
+    IEnumerator WaitAndPrint()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        Debug.Log("Đã chờ đủ " + timeToWait + " giây");
+        // Thực hiện hành động ở đây
+        canMove = true;
+    }
+
     void OnMove(InputValue value)
     {
         movementInput = value.Get<Vector2>();
@@ -130,7 +142,9 @@ public class TestDash : MonoBehaviour
 
     void StartDash()
     {
+        
         isDashing = true;
+        
         dashTime = dashDuration;
         dashCooldownTime = dashCooldown;
 
@@ -141,5 +155,7 @@ public class TestDash : MonoBehaviour
         }
         //rb.velocity = Vector2.Lerp(dashDirection * dashSpeed, Vector2.zero, idleFriction);
         rb.velocity = dashDirection * dashSpeed;
+
+        canMove = false;
     }
 }

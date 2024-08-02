@@ -41,7 +41,7 @@ public class Slime : MonoBehaviour
 
         if (damageable != null)
         {
-            Debug.Log("mat mau");
+            //Debug.Log("mat mau");
             //Calculate direction between character and slime
             //Vector3 parentPosition = transform.parent.position;
 
@@ -54,14 +54,6 @@ public class Slime : MonoBehaviour
             damageable.OnHit(damage, knockback);
         }
     }
-    /* void OnCollisionEnter2D(Collision2D collision)
-    {
-        IDamagable damageable = collision.collider.GetComponent<IDamagable>();
-
-        if(damageable != null)
-                {
-            damageable.OnHit(damage);
-        }
-    }*/
+    
 
 }

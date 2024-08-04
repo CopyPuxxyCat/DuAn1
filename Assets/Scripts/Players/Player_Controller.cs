@@ -54,6 +54,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (showshop && Input.GetKey(KeyCode.E))
         {
+            Time.timeScale = 0f;
             panel.SetActive(true);
         }
     }

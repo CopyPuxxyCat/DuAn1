@@ -50,8 +50,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 // tat slime
                 targetAble = false;
                 // hien panel gameover
-                Time.timeScale = 0f;
-                GameOver.SetActive(true);
+                //Time.timeScale = 0f;
+                //GameOver.SetActive(true);
             }
         }
         get

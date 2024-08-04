@@ -21,6 +21,10 @@ public class Player_Controller : MonoBehaviour
     public bool canMove = true;
     public float idleFriction = 0.9f;
 
+    // audio
+    public AudioClip swordSwingSound;
+    AudioSource audioSword;
+
     public GameObject swordHitBox;
 
     Collider2D swordCollider;
@@ -42,13 +46,21 @@ public class Player_Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         swordCollider = swordHitBox.GetComponent<Collider2D>();
+
+        audioSword = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (showshop && Input.GetKey(KeyCode.E))
         {
+            Time.timeScale = 0f;
             panel.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Time.timeScale = 1f;
+            panel.SetActive(false);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -102,7 +114,15 @@ public class Player_Controller : MonoBehaviour
         
     }
 
-    
+    void PlaySwordSwingSound()
+    {
+        if (audioSword != null && swordSwingSound != null)
+        {
+            audioSword.PlayOneShot(swordSwingSound);
+            Debug.Log("chay am thanh kiem");
+        }
+    }
+
     // get input value for player movement
     void OnMove(InputValue value)
     {
@@ -113,6 +133,7 @@ public class Player_Controller : MonoBehaviour
     void OnFire()
     {
         animator.SetTrigger("swordAttack");
+        PlaySwordSwingSound();
     }
 
     void LockMovement()

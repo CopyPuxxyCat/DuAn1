@@ -8,8 +8,11 @@ public class swordHitBox : MonoBehaviour
     public float knockbackForce = 4f;
     public Collider2D swordCollider2;
 
+    
+
     public Vector3 faceRight = new Vector3(0.4f, -0.2f,0);
     public Vector3 faceLeft = new Vector3(-0.4f, -0.2f, 0);
+
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class swordHitBox : MonoBehaviour
         {
             Debug.LogWarning("need to set sword collider!");
         }
+        
     }
     /*void OnCollisionEnter2D(Collision2D collision)
     {
@@ -41,6 +45,7 @@ public class swordHitBox : MonoBehaviour
 
             // make it hit by passing the Vector2 force to the rb
             damagealeObject.OnHit(swordDamage, knockback);
+            
         }
         else
         {
@@ -48,6 +53,8 @@ public class swordHitBox : MonoBehaviour
         }
 
     }
+
+    
 
     void isFacingRight(bool isFacingRight)
     {

@@ -37,20 +37,7 @@ public class Player_Controller : MonoBehaviour
 
     Animator animator;
 
-    // Dash variables
-    public float dashSpeed = 10f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 1f;
-    private bool isDashing = false;
-    private float dashTime = 0f;
-    private float dashCooldownTime = 0f;
-    private float timeToWait = 0.25f;
-
-    // Particle system for dashing
-    public ParticleSystem dashParticleSystem;
-    public ParticleSystem slashParticleSystem;
-
-
+   
 
     // Start is called before the first frame update
     void Start()
@@ -61,18 +48,6 @@ public class Player_Controller : MonoBehaviour
         swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         audioSword = GetComponent<AudioSource>();
-
-        // Ensure the particle system is initially disabled
-        if (dashParticleSystem != null)
-        {
-            dashParticleSystem.Stop();
-        }
-
-        // Ensure the particle system is initially disabled
-        if (slashParticleSystem != null)
-        {
-            slashParticleSystem.Stop();
-        }
     }
 
     private void Update()
@@ -82,24 +57,10 @@ public class Player_Controller : MonoBehaviour
             Time.timeScale = 0f;
             panel.SetActive(true);
         }
-
-        if (dashCooldownTime > 0)
+        if (Input.GetKey(KeyCode.Escape))
         {
-            dashCooldownTime -= Time.deltaTime;
-        }
-
-        if (isDashing)
-        {
-            dashTime -= Time.deltaTime;
-            if (dashTime <= 0)
-            {
-                EndDash();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0)
-        {
-            StartDash();
-            StartCoroutine(WaitAndPrint());
+            Time.timeScale = 1f;
+            panel.SetActive(false);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -111,13 +72,8 @@ public class Player_Controller : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isDashing)
-        {
-            return;
-        }
-
         // if movement input != 0, try to move
-        if (canMove == true && movementInput != Vector2.zero)
+        if(canMove == true && movementInput != Vector2.zero)
         {
             // this dont allow player to run faster than the max speed
             //rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
@@ -158,26 +114,6 @@ public class Player_Controller : MonoBehaviour
         
     }
 
-    // Stop the player alittle bit after dashing
-    IEnumerator WaitAndPrint()
-    {
-        yield return new WaitForSeconds(timeToWait);
-        //Debug.Log("Đã chờ đủ " + timeToWait + " giây");
-        // Thực hiện hành động ở đây
-        canMove = true;
-    }
-
-    IEnumerator WaitForSlashPartical()
-    {
-        yield return new WaitForSeconds(timeToWait);
-        // Thực hiện hành động ở đây
-        // Stop the particle system
-        if (slashParticleSystem != null)
-        {
-            slashParticleSystem.Stop();
-        }
-    }
-
     void PlaySwordSwingSound()
     {
         if (audioSword != null && swordSwingSound != null)
@@ -197,12 +133,6 @@ public class Player_Controller : MonoBehaviour
     void OnFire()
     {
         animator.SetTrigger("swordAttack");
-        // Start the particle system
-        if (slashParticleSystem != null)
-        {
-            slashParticleSystem.Play();
-        }
-        StartCoroutine(WaitForSlashPartical());
         PlaySwordSwingSound();
     }
 
@@ -215,38 +145,5 @@ public class Player_Controller : MonoBehaviour
     {
         canMove = true;
     }
-
-    void StartDash()
-    {
-        isDashing = true;
-        dashTime = dashDuration;
-        dashCooldownTime = dashCooldown;
-
-        Vector2 dashDirection = movementInput.normalized;
-        if (dashDirection == Vector2.zero)
-        {
-            dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-        }
-
-        rb.velocity = dashDirection * dashSpeed;
-
-        // Start the particle system
-        if (dashParticleSystem != null)
-        {
-            dashParticleSystem.Play();
-        }
-
-        canMove = false;
-    }
-
-    void EndDash()
-    {
-        isDashing = false;
-
-        // Stop the particle system
-        if (dashParticleSystem != null)
-        {
-            dashParticleSystem.Stop();
-        }
-    }
+    
 }

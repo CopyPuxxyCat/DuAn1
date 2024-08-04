@@ -15,6 +15,8 @@ public class Player_Controller : MonoBehaviour
         }
     }
     public bool showshop;
+    public bool ShowgiaoTiep;
+    public GameObject Panel_giaotiep,Hthoai1,Hthoai2,Hthoai3;
     public GameObject panel;
     public float moveSpeed = 50f;
     public float maxSpeed = 4f;
@@ -57,6 +59,13 @@ public class Player_Controller : MonoBehaviour
             Time.timeScale = 0f;
             panel.SetActive(true);
         }
+        if(ShowgiaoTiep && Input.GetKey(KeyCode.E))
+        {
+            Time.timeScale = 1f;
+            Panel_giaotiep.SetActive(true);
+            Hthoai2.SetActive(false);
+            Hthoai3.SetActive(false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -64,7 +73,12 @@ public class Player_Controller : MonoBehaviour
         {
             showshop = true;
         }
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+            ShowgiaoTiep = true;
+        }
     }
+ 
     private void FixedUpdate()
     {
         // if movement input != 0, try to move

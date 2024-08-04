@@ -57,6 +57,11 @@ public class Player_Controller : MonoBehaviour
             Time.timeScale = 0f;
             panel.SetActive(true);
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Time.timeScale = 1f;
+            panel.SetActive(false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

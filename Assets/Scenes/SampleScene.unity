@@ -600,7 +600,8 @@ MonoBehaviour:
   monsters:
   - {fileID: 6731288878110951796, guid: 83f0f8d9cfb1b314f8c0ac46b2df7333, type: 3}
   decorations:
-  - {fileID: 9216405887785776815, guid: d06146b0d3cf4b846b7610d17f6c15f9, type: 3}
+  - {fileID: 8000868335123175926, guid: dba2232b4c5f8dc4cabad639c8e70579, type: 3}
+  portalPrefab: {fileID: 9216405887785776815, guid: d06146b0d3cf4b846b7610d17f6c15f9, type: 3}
 --- !u!4 &619923466
 Transform:
   m_ObjectHideFlags: 0

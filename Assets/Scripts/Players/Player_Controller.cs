@@ -39,7 +39,22 @@ public class Player_Controller : MonoBehaviour
 
     Animator animator;
 
-   
+    // Dash variables
+    public float dashSpeed = 28f;
+    public float dashDuration = 0.0005f;
+    public float dashCooldown = 1.5f;
+    private bool isDashing = false;
+    private float dashTime = 0f;
+    private float dashCooldownTime = 0f;
+
+    // Particle system for dashing
+    public ParticleSystem dashParticleSystem;
+
+    // Stop movement after dash variables
+    public float stopDuration = 0.5f;
+    private bool isStopping = false;
+    private float stopTime = 0f;
+    public float timeToWait = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +65,46 @@ public class Player_Controller : MonoBehaviour
         swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         audioSword = GetComponent<AudioSource>();
+
+        // Ensure the particle system is initially disabled
+        if (dashParticleSystem != null)
+        {
+            dashParticleSystem.Stop();
+        }
     }
 
     private void Update()
     {
+        // Update dash cooldown
+        if (dashCooldownTime > 0)
+        {
+            dashCooldownTime -= Time.deltaTime;
+        }
+
+        // Handle dashing
+        if (isDashing)
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime <= 0)
+            {
+                EndDash();
+            }
+        }
+        else if (isStopping)
+        {
+            stopTime -= Time.deltaTime;
+            if (stopTime <= 0)
+            {
+                isStopping = false;
+                canMove = true;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0)
+        {
+            StartDash();
+            //StartCoroutine(WaitAfterDashToMove());
+        }
+
         if (showshop && Input.GetKey(KeyCode.E))
         {
             Time.timeScale = 0f;
@@ -81,19 +132,38 @@ public class Player_Controller : MonoBehaviour
  
     private void FixedUpdate()
     {
+        // Prevent movement during dash and stop period
+        if (isDashing || isStopping)
+        {
+            return;
+        }
+
+
         // if movement input != 0, try to move
-        if(canMove == true && movementInput != Vector2.zero)
+        if (canMove == true && movementInput != Vector2.zero)
         {
             // this dont allow player to run faster than the max speed
             //rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
 
             rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
 
-            if(rb.velocity.magnitude > maxSpeed)
+            /*float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector2 movement = new Vector2(horizontalInput, verticalInput);
+            transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+            // Điều chỉnh scale theo hướng di chuyển
+            if (horizontalInput > 0)
+                transform.localScale = new Vector3(1, 1, 1);
+            else if (horizontalInput < 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            if (rb.velocity.magnitude > maxSpeed)
             {
                 float limitedSpeed = Mathf.Lerp(rb.velocity.magnitude, maxSpeed, idleFriction);
                 rb.velocity = rb.velocity.normalized * limitedSpeed;
-            }
+            }*/
 
             // control whether looking left or right
             if(movementInput.x > 0)
@@ -121,6 +191,20 @@ public class Player_Controller : MonoBehaviour
 
         
         
+    }
+
+    IEnumerator WaitAfterDashToMove()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        // Thực hiện hành động ở đây
+        canMove = true;
+    }
+
+    IEnumerator WaitAfterDashToMove_2()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        // Thực hiện hành động ở đây
+        rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
     }
 
     void PlaySwordSwingSound()
@@ -153,5 +237,41 @@ public class Player_Controller : MonoBehaviour
     {
         canMove = true;
     }
-    
+    void StartDash()
+    {
+        isDashing = true;
+        dashTime = dashDuration;
+        dashCooldownTime = dashCooldown;
+        //canMove = false;
+
+        Vector2 dashDirection = movementInput.normalized;
+        if (dashDirection == Vector2.zero)
+        {
+            dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+        }
+
+        rb.velocity = dashDirection * dashSpeed;
+
+        // Start the particle system
+        if (dashParticleSystem != null)
+        {
+            dashParticleSystem.Play();
+        }
+    }
+
+    void EndDash()
+    {
+        isDashing = false;
+        isStopping = true;
+        stopTime = stopDuration;
+        Debug.Log("goi endDash");
+
+        StartCoroutine(WaitAfterDashToMove_2());
+        // Stop the particle system
+        if (dashParticleSystem != null)
+        {
+            dashParticleSystem.Stop();
+        }
+        canMove = false;
+    }
 }

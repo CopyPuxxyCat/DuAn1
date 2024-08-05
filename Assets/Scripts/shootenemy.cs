@@ -10,8 +10,8 @@ public class Shootenemy : MonoBehaviour
     public Transform shootpoint;
     public Transform players;
     public Transform player;
-    public Transform enemypoint;
-    public float health = 100f;
+    //public Transform enemypoint;
+    //public float health = 100f;
     public float range = 5f;
     // Start is called before the first frame update
     void Start()
@@ -36,15 +36,15 @@ public class Shootenemy : MonoBehaviour
                 Destroy(rp.gameObject, 1f);
             }
         }
-        else if (position > range)
-        {
-            Vector3 pp = enemypoint.position - transform.position;
-            transform.position += pp * 1f * Time.deltaTime;
-        }
-        if (health <= 0f)
-        {
-            Destroy(this.gameObject);
-        }
+        //else if (position > range)
+        //{
+        //    Vector3 pp = enemypoint.position - transform.position;
+        //    transform.position += pp * 1f * Time.deltaTime;
+        //}
+        //if (health <= 0f)
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
     IEnumerator shootting()
     {
@@ -59,13 +59,12 @@ public class Shootenemy : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("bullet"))
-        {
-            health -= 50f;
-            Destroy(collision.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("bullet"))
+    //    {
+    //        health -= 50f;
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 }
-    

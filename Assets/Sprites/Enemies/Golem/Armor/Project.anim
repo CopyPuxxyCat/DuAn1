@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Inferno Blaze
+  m_Name: Project
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 565518850, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - time: 0.16666667
-      value: {fileID: -1452134261, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - time: 0.3
-      value: {fileID: 1366152369, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - time: 0.46666667
-      value: {fileID: 1919376253, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
+      value: {fileID: -1353735086, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
+    - time: 0.1
+      value: {fileID: 1245170635, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
+    - time: 0.2
+      value: {fileID: -1649992737, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 565518850, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - {fileID: -1452134261, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - {fileID: 1366152369, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
-    - {fileID: 1919376253, guid: aae8d8b5de08d0b438d75ebf44846e83, type: 3}
+    - {fileID: -1353735086, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
+    - {fileID: 1245170635, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
+    - {fileID: -1649992737, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.48333335
+    m_StopTime: 0.21666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

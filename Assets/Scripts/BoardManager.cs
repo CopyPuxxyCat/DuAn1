@@ -566,7 +566,7 @@ public class BoardManager : MonoBehaviour {
         int totalMonstersKilled = KilledEnemy.sharedValue;
         Debug.Log("Da giet BM : " + totalMonstersKilled);
 
-        if (totalMonstersKilled >= 1)
+        if (totalMonstersKilled >= 10)
         {
             Subdungeon currentSubdungeon = GetCurrentSubdungeon(player.transform.position);
 

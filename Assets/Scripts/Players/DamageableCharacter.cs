@@ -6,6 +6,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 {
     public GameObject healthText;
 
+    //public GameObject gameObject;
+
     public bool disableSimulation = false;
 
     public float invincibleTime = 0.25f;
@@ -138,7 +140,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         Destroy(gameObject);
         kill = 1;
         KilledEnemy.sharedValue += kill;
-        
+        KilledEnemy.enemyVector3 = gameObject.transform.position;
     }
 
     public int TotalKilled()

@@ -8,16 +8,28 @@ public class Bullet : MonoBehaviour
     public float bulletDamage = 1f;
     public float knockbackForce = 2f;
     public Collider2D bulletCollider2;
-    Rigidbody2D rb;
+    public float timeToWait = 0.3f;
+    Animator animator;
+
 
 
     private void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         if (bulletCollider2 == null)
         {
             Debug.LogWarning("need to set bullet collider!");
         }
+
+        StartCoroutine(WaitAfterShoot());
+    }
+
+    IEnumerator WaitAfterShoot()
+    {
+        animator.SetTrigger("bulletHit");
+        yield return new WaitForSeconds(timeToWait);
+        // Thực hiện hành động ở đây
+        bulletCollider2.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,17 +39,16 @@ public class Bullet : MonoBehaviour
         // calculate direction between character and slime
         if (damagealeObject != null)
         {
-            //Calculate direction between character and slime
-            Vector3 parentPosition = transform.parent.position;
 
-            // offset for collision change the direction where the force come from (close to the player)
-            Vector2 direction = (Vector2)(collision.gameObject.transform.position - parentPosition).normalized;
             // knockback is in direction of bulletCollider towards collider
-            Vector2 knockback = direction * knockbackForce;
+            Vector2 knockback = KilledEnemy.bulletVector2 * knockbackForce;
 
             // make it hit by passing the Vector2 force to the rb
             damagealeObject.OnHit(bulletDamage, knockback);
 
+            Destroy(gameObject);
+
+            Debug.Log("dinh dmg");
         }
         else
         {

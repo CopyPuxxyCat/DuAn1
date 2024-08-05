@@ -23,7 +23,7 @@ public class Golem_Enemy : MonoBehaviour
     public float damage = 1;
     public float knockbackForce = 2f;
     public float moveSpeed = 50f;
-    private float bulletSpeed = 1f;
+    private float bulletSpeed = 1.2f;
     public DetectionZone detectionZone;
     public DetectionZone shootingZone; // Thêm vùng bắn
     public GameObject arrowPrefab; // Prefab của cung tên
@@ -43,6 +43,8 @@ public class Golem_Enemy : MonoBehaviour
 
     private bool facingRight = true;
 
+    private int shootCount = 0;
+
     private void Start()
     {
         rb.GetComponent<Rigidbody2D>();
@@ -58,6 +60,7 @@ public class Golem_Enemy : MonoBehaviour
         {
             Transform target = detectionZone.detectedObjs[0].transform;
             Vector2 direction = (target.position - transform.position).normalized;
+            
 
             if (shootingZone.detectedObjs.Exists(obj => obj.transform == target))
             {
@@ -73,11 +76,10 @@ public class Golem_Enemy : MonoBehaviour
                 }
                 if (isAiming)
                 {
-                    //Debug.Log("is aiming 3: " + isAiming);
-                    //Debug.Log("is shooting 3: " + isShooting);
                     if (Time.time > aimStartTime + aimTime)
                     {
                         // Hoàn thành quá trình ngắm bắn và bắn tên
+                        KilledEnemy.bulletVector2 = direction;
                         ShootArrow(direction);
                         lastShootTime = Time.time;
                         isAiming = false;
@@ -119,11 +121,25 @@ public class Golem_Enemy : MonoBehaviour
 
     void ShootArrow(Vector2 direction)
     {
-        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
-        arrow.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
-        
-        // Thêm các thuộc tính của cung tên nếu cần, ví dụ như damage
+        if (shootCount < 2)
+        {
+            // Bắn một viên đạn theo hướng chỉ định
+            GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
+            arrow.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        }
+        else
+        {
+            // Bắn 36 viên đạn theo 360 độ
+            for (int i = 0; i < 18; i++)
+            {
+                float angle = i * 20; // 360 độ chia cho 36 viên đạn
+                Vector2 shootDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+                GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
+                arrow.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
+            }
+            shootCount = -1; // Reset đếm sau khi bắn 36 viên đạn
+        }
+        shootCount++;
     }
 
     void OnCollisionEnter2D(Collision2D col)

@@ -40,7 +40,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875183783897197030}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5220,6 +5220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showshop: 0
+  ShowgiaoTiep: 0
+  Panel_giaotiep: {fileID: 0}
+  Hthoai1: {fileID: 0}
+  Hthoai2: {fileID: 0}
+  Hthoai3: {fileID: 0}
   panel: {fileID: 0}
   moveSpeed: 150
   maxSpeed: 180
@@ -5227,10 +5232,12 @@ MonoBehaviour:
   idleFriction: 1
   swordSwingSound: {fileID: 8300000, guid: 389a7ea91c6d13a4cb3a9976bf7d41c7, type: 3}
   swordHitBox: {fileID: 3875183783897197030}
-  dashSpeed: 10
-  dashDuration: 0.2
+  dashSpeed: 28
+  dashDuration: 0.0005
   dashCooldown: 1
   dashParticleSystem: {fileID: 1119011722007001110}
+  stopDuration: 0.5
+  timeToWait: 0.1
 --- !u!82 &7010266771371024413
 AudioSource:
   m_ObjectHideFlags: 0

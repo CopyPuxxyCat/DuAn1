@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageableCharacter : MonoBehaviour, IDamagable
+public class DamageAbleEnemy : MonoBehaviour, IDamagable
 {
     public GameObject healthText;
-
-    //public GameObject gameObject;
 
     public bool disableSimulation = false;
 
@@ -16,7 +14,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     private float invincibleElapsed = 0f;
 
-    private int kill;
     private int totalKill;
 
     Animator animator;
@@ -27,7 +24,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     bool isAlive = true;
 
-    public GameObject GameOver;
     public float Health
     {
         set
@@ -52,9 +48,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
                 // tat slime
                 targetAble = false;
-                // hien panel gameover
-                //Time.timeScale = 0f;
-                //GameOver.SetActive(true);
             }
         }
         get
@@ -70,7 +63,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             _targetable = value;
             // turn of the smilated
-            if(disableSimulation)
+            if (disableSimulation)
             {
                 rb.simulated = false;
             }
@@ -79,9 +72,13 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
     }
 
-    public bool invincible { get { return _invincible; }
-        set { _invincible = value;
-        if(_invincible == true)
+    public bool invincible
+    {
+        get { return _invincible; }
+        set
+        {
+            _invincible = value;
+            if (_invincible == true)
             {
                 invincibleElapsed = 0f;
             }
@@ -107,14 +104,14 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public void OnHit(float damage, Vector2 knockback)
     {
-       if( !invincible)
+        if (!invincible)
         {
             Health -= damage;
 
             // apply force
             rb.AddForce(knockback, ForceMode2D.Impulse);
 
-            if(isInvincibleEnable)
+            if (isInvincibleEnable)
             {
                 invincible = true;
             }
@@ -125,7 +122,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public void OnHit(float damage)
     {
-        if ( !invincible)
+        if (!invincible)
         {
             Health -= damage;
             if (isInvincibleEnable)
@@ -138,23 +135,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
-        kill = 1;
-        KilledEnemy.sharedValue += kill;
-        KilledEnemy.enemyVector3 = gameObject.transform.position;
-    }
-
-    public int TotalKilled()
-    {
-        Debug.Log("KilledEnemy.sharedValue" + KilledEnemy.sharedValue);
-        totalKill = kill;
-        Debug.Log("da giet tong cong: " + KilledEnemy.sharedValue);
-        return totalKill;
-    }
-
-    
-    private void Update()
-    {
-        TotalKilled();
+        totalKill += 1;
+        Debug.Log("da giet" + totalKill);
     }
 
     public void FixedUpdate()
@@ -163,7 +145,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             invincibleElapsed += Time.deltaTime;
 
-            if(invincibleElapsed > invincibleTime)
+            if (invincibleElapsed > invincibleTime)
             {
                 invincible = false;
             }

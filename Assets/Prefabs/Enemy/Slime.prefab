@@ -289,4 +289,5 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.25
   isInvincibleEnable: 0
+  GameOver: {fileID: 0}
   _invincible: 0

@@ -14,6 +14,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     private float invincibleElapsed = 0f;
 
+    private int kill;
     private int totalKill;
 
     Animator animator;
@@ -50,8 +51,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 // tat slime
                 targetAble = false;
                 // hien panel gameover
-                Time.timeScale = 0f;
-                GameOver.SetActive(true);
+                //Time.timeScale = 0f;
+                //GameOver.SetActive(true);
             }
         }
         get
@@ -135,8 +136,23 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
-        totalKill += 1;
-        Debug.Log("da giet" + totalKill);
+        kill = 1;
+        KilledEnemy.sharedValue += kill;
+        
+    }
+
+    public int TotalKilled()
+    {
+        Debug.Log("KilledEnemy.sharedValue" + KilledEnemy.sharedValue);
+        totalKill = kill;
+        Debug.Log("da giet tong cong: " + KilledEnemy.sharedValue);
+        return totalKill;
+    }
+
+    
+    private void Update()
+    {
+        TotalKilled();
     }
 
     public void FixedUpdate()

@@ -128,7 +128,6 @@ public class Player_Controller : MonoBehaviour
         if (audioSword != null && swordSwingSound != null)
         {
             audioSword.PlayOneShot(swordSwingSound);
-            Debug.Log("chay am thanh kiem");
         }
     }
 

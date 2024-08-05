@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 1661391952391577103}
   - component: {fileID: 6661700354604445872}
   - component: {fileID: 4592172896255363773}
-  - component: {fileID: 6606272966431731921}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6731288878110951796}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f29c3743c1651c840b1e4884bbf49746, type: 3}
   m_Name: 
@@ -291,21 +290,4 @@ MonoBehaviour:
   invincibleTime: 0.25
   isInvincibleEnable: 0
   GameOver: {fileID: 0}
-  _invincible: 0
---- !u!114 &6606272966431731921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731288878110951796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e706c5f01824c499171aa2580d9671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 646210489230855289, guid: a9e32ae3c9296c34193ef0c85db19232, type: 3}
-  disableSimulation: 0
-  invincibleTime: 0.25
-  isInvincibleEnable: 0
   _invincible: 0

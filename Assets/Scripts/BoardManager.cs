@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using static BoardManager;
 
 public class BoardManager : MonoBehaviour {
 
@@ -44,6 +46,12 @@ public class BoardManager : MonoBehaviour {
 
     public GameObject[] decorations; //array of decoration prefabs
 
+    // count the monster get killed
+    //int numberOfMonsters;
+    //int totalMunberSpawn;
+    public GameObject portalPrefab;
+    public List<Subdungeon> allSubdungeons = new List<Subdungeon>();
+
     public class Subdungeon
     {
 
@@ -52,8 +60,12 @@ public class BoardManager : MonoBehaviour {
         public Rect rect;
         public Rect room = new Rect(-1, -1, 0, 0);
         public List<Rect> corridors = new List<Rect>();
-        
-   
+
+        // portal and killed enemy
+        public int monstersKilled;
+        public bool portalCreated;
+
+
 
         public Subdungeon(Rect mrect)
         {
@@ -447,7 +459,7 @@ public class BoardManager : MonoBehaviour {
                 int roomHeight = (int)subdungeon.room.height;
 
                 // Calculate the number of monsters based on room size
-                int numberOfMonsters = Mathf.Max(1, roomWidth * roomHeight / 60);
+                int numberOfMonsters = Mathf.Max(1, 3);
 
                 Vector3 roomCenter = new Vector3(
                     subdungeon.room.x + subdungeon.room.width / 2,
@@ -489,7 +501,7 @@ public class BoardManager : MonoBehaviour {
 
         if (subdungeon.isLeaf())
         {
-            for (int i = 0; i < 5; i++) // number of decorations per room, adjust as needed
+            for (int i = 0; i < 1; i++) // number of decorations per room, adjust as needed
             {
                 Vector3 decorationPosition = new Vector3(
                     Random.Range(subdungeon.room.x + 1, subdungeon.room.xMax - 1),
@@ -533,6 +545,91 @@ public class BoardManager : MonoBehaviour {
         }
     }
 
+    public int CountMonstersKilled()
+    {
+        int totalMonstersKilled = 0;
+
+        foreach (Subdungeon subdungeon in allSubdungeons)
+        {
+            //totalMonstersKilled += subdungeon.monstersKilled;
+            totalMonstersKilled = KilledEnemy.sharedValue;
+
+        }
+
+        
+        return totalMonstersKilled;
+
+    }
+
+    public void CheckForPortal()
+    {
+        int totalMonstersKilled = KilledEnemy.sharedValue;
+        Debug.Log("Da giet BM : " + totalMonstersKilled);
+
+        if (totalMonstersKilled >= 1)
+        {
+            Subdungeon currentSubdungeon = GetCurrentSubdungeon(player.transform.position);
+
+            /*if (currentSubdungeon != null && !currentSubdungeon.portalCreated)
+            {*/
+                /*Vector3 portalPosition = new Vector3(
+                    currentSubdungeon.room.x + currentSubdungeon.room.width / 2,
+                    currentSubdungeon.room.y + currentSubdungeon.room.height / 2,
+                    0f
+                );*/
+
+                //GameObject portalInstance = Instantiate(portalPrefab, portalPosition, Quaternion.identity);
+                GameObject portalInstance = Instantiate(portalPrefab, player.transform.position, Quaternion.identity);
+                portalInstance.transform.SetParent(transform);
+
+                currentSubdungeon.portalCreated = true;
+                Debug.Log("tao portal");
+            //}
+        }
+        
+    }
+
+    private void Update()
+    {
+        Vector3 pos = player.transform.position;
+        pos.z = -9f; //the darkness must be above the main camera but below the minimap camera 
+        Darkness.transform.position = pos; //the darkness follows the player, moves when the player does.
+        CheckForPortal();
+    }
+
+    public void OnMonsterKilled(Vector3 monsterPosition)
+    {
+        Subdungeon subdungeon = GetSubdungeonAtPosition(monsterPosition);
+        if (subdungeon != null)
+        {
+            subdungeon.monstersKilled++;
+            Debug.Log("giet: " + subdungeon.monstersKilled);
+        }
+    }
+
+    public Subdungeon GetCurrentSubdungeon(Vector3 position)
+    {
+        foreach (Subdungeon subdungeon in allSubdungeons)
+        {
+            if (subdungeon.room.Contains(position))
+            {
+                return subdungeon;
+            }
+        }
+        return null;
+    }
+
+    public Subdungeon GetSubdungeonAtPosition(Vector3 position)
+    {
+        foreach (Subdungeon subdungeon in allSubdungeons)
+        {
+            if (subdungeon.room.Contains(position))
+            {
+                return subdungeon;
+            }
+        }
+        return null;
+    }
 
     private void Start()
     {
@@ -560,12 +657,13 @@ public class BoardManager : MonoBehaviour {
         Darkness.transform.position = playerPos;
     }
 
-    private void Update()
+    /*private void Update()
     {
         Vector3 pos = player.transform.position;
         pos.z = -9f; //the darkness must be above the main camera but below the minimap camera 
         Darkness.transform.position = pos; //the darkness follows the player, moves when the player does.
-    }
+        CheckForPortal();
+    }*/
 
 }
  

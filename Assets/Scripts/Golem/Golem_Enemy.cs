@@ -38,7 +38,7 @@ public class Golem_Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (/*damageableCharacter.targetAble &&*/ detectionZone.detectedObjs.Count > 0)
+        if (damageableCharacter.targetAble && detectionZone.detectedObjs.Count > 0)
         {
             // calculate direction to target
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
@@ -46,6 +46,7 @@ public class Golem_Enemy : MonoBehaviour
             // move toward the objs
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
             IsGolemMoving = true;
+            Debug.Log("di chuyen duoc");
         }
         else
         {

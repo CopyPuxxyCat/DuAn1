@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4323358412628979989}
   - component: {fileID: 8223362349092562635}
   - component: {fileID: -4158617215620176952}
-  - component: {fileID: -1034758069553671702}
+  - component: {fileID: 4475074387407992642}
   m_Layer: 0
-  m_Name: Golem Project
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1353735086, guid: de98ed538ccc77d4099db8a7bd6ffa16, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -1371524843, guid: 70c576d1b54f9304cb56fa2c18ad3926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2555036136624638622}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee3f3d2bb1d55614a9e9c54a96381b9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: cc290fcb7f3601b40bf726e9941f0ffc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.05
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -149,21 +149,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8223362349092562635}
---- !u!114 &-1034758069553671702
-MonoBehaviour:
+--- !u!60 &4475074387407992642
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555036136624638622}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29c3743c1651c840b1e4884bbf49746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 646210489230855289, guid: a9e32ae3c9296c34193ef0c85db19232, type: 3}
-  disableSimulation: 0
-  invincibleTime: 0.25
-  isInvincibleEnable: 0
-  GameOver: {fileID: 0}
-  _invincible: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.28125, y: 0.28125}
+    newSize: {x: 0.2, y: 0.05}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.015624963, y: 0.052367643}
+      - {x: -0.018186063, y: 0.020896867}
+      - {x: -0.051010355, y: 0.018339634}
+      - {x: -0.048295714, y: -0.02241157}
+      - {x: -0.018400818, y: -0.018178776}
+      - {x: -0.016982354, y: -0.052367657}
+      - {x: 0.019696992, y: -0.049653023}
+      - {x: 0.017664835, y: -0.02195032}
+      - {x: 0.045581132, y: -0.019696996}
+      - {x: 0.052367684, y: 0.019696966}
+      - {x: 0.019317672, y: 0.020210862}
+      - {x: 0.016982358, y: 0.05236768}
+  m_UseDelaunayMesh: 0

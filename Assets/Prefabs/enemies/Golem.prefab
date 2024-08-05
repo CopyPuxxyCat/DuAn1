@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5346749375615146582}
   - component: {fileID: 1452402222290537602}
   - component: {fileID: 1386790115413930456}
-  - component: {fileID: 3176708986509160657}
   - component: {fileID: 4931567517211530964}
   - component: {fileID: 7287808726372483588}
+  - component: {fileID: 3176708986509160657}
   - component: {fileID: 5519067721617030835}
   m_Layer: 0
   m_Name: Golem
@@ -112,27 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3176708986509160657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4262501630647036460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 735287c7df8502e48a96ab99b2e28584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  knockbackForce: 2
-  moveSpeed: 50
-  detectionZone: {fileID: 6318529517556428438}
-  shootingZone: {fileID: 6139436654866089666}
-  rb: {fileID: 4931567517211530964}
-  idleFriction: 0.9
-  arrowPrefab: {fileID: 2555036136624638622, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
-  shootCooldown: 2
 --- !u!50 &4931567517211530964
 Rigidbody2D:
   serializedVersion: 4
@@ -195,6 +174,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.125
+--- !u!114 &3176708986509160657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262501630647036460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735287c7df8502e48a96ab99b2e28584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  knockbackForce: 2
+  moveSpeed: 20
+  detectionZone: {fileID: 6318529517556428438}
+  shootingZone: {fileID: 6139436654866089666}
+  arrowPrefab: {fileID: 2555036136624638622, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
+  arrowSpawnPoint: {fileID: 5346749375615146582}
+  rb: {fileID: 4931567517211530964}
+  idleFriction: 0.9
+  shootingInterval: 2
 --- !u!114 &5519067721617030835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagTarget: Player
   detectedObjs: []
-  col: {fileID: 0}
+  col: {fileID: 1150374932191771961}
 --- !u!1 &7408584102499457308
 GameObject:
   m_ObjectHideFlags: 0

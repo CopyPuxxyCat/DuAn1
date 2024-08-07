@@ -28041,10 +28041,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4158617215620176952, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
-      propertyPath: timeToWait
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2555036136624638622, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
       propertyPath: m_Name
       value: Bullet

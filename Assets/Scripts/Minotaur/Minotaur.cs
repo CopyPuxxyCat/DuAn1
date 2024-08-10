@@ -44,9 +44,10 @@ public class Minotaur : MonoBehaviour
     public float damage = 1;
     public float knockbackForce = 2f;
     public float moveSpeed = 60f;
-    private float bulletSpeed = 1.2f;
+    public float bulletSpeed = 5f;
     public DetectionZone detectionZone;
     public DetectionZone shootingZone; // Thêm vùng bắn
+    public DetectionZone meleZone;
     public GameObject arrowPrefab; // Prefab của cung tên
     public Transform arrowSpawnPoint; // Điểm xuất phát của cung tên
     public Rigidbody2D rb;
@@ -58,22 +59,27 @@ public class Minotaur : MonoBehaviour
     bool isSpin = false;
     bool isReadySpin = false;
     DamageableCharacter damageableCharacter;
-    float lastShootTime;
+    //float lastShootTime = 0;
+
+    public Transform player;
 
     bool canMove = true;
 
     public float aimTime = 0.5f;  // Thời gian chờ để chạy animation bắn
-    private float aimStartTime;
-    private bool isAiming = false;
+    //private float aimStartTime;
+    //private bool isAiming = false;
 
     private bool facingRight = true;
 
-    private int comboCount = 0;
+    private int currentComboStep = 0;
+    private bool isComboActive = false;
 
 
     public float attackRate = 1f;
 
-    private float nextAttackTime = 0f;
+    private float nextAttackTime = 3f;
+
+    public float spinningSpeed = 1550f;
 
     private void Start()
     {
@@ -81,58 +87,31 @@ public class Minotaur : MonoBehaviour
         damageableCharacter = GetComponent<DamageableCharacter>();
         animator = GetComponent<Animator>();
 
-        lastShootTime = -shootingInterval;  // Đặt thời gian bắn cuối cùng là trừ đi khoảng thời gian bắn để Minotaur có thể bắn ngay lập tức
+        // Tìm đối tượng player (player có tag là "Player")
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //lastShootTime = -shootingInterval;  // Đặt thời gian bắn cuối cùng là trừ đi khoảng thời gian bắn để Minotaur có thể bắn ngay lập tức
     }
 
     private void FixedUpdate()
     {
-        /*if (damageableCharacter.targetAble && detectionZone.detectedObjs.Count > 0)
+        if (isShooting == true)
         {
-            Transform target = detectionZone.detectedObjs[0].transform;
-            Vector2 direction = (target.position - transform.position).normalized;
-
-            if (shootingZone.detectedObjs.Exists(obj => obj.transform == target))
-            {
-                    KilledEnemy.bulletVector2 = direction;
-                    MeleAttack(direction);
-            }
-            else
-            {
-                // Trong vùng phát hiện nhưng không trong vùng bắn
-                if (canMove == true)
-                {
-                    rb.AddForce(direction * moveSpeed * Time.deltaTime);
-                    IsMinotaurMoving = true;
-                    IsShooting = false;
-                }
-
-            }
-
-            // Lật sprite nếu cần
-            if ((facingRight && direction.x < 0) || (!facingRight && direction.x > 0))
-            {
-                Flip();
-            }
+            return; // Dừng combo nếu quái vật đang bắn mũi tên
         }
-        else
-        {
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
-            IsMinotaurMoving = false;
-            IsShooting = false;
-        }*/
-    }
-    private void Update()
-    {
         if (damageableCharacter.targetAble && detectionZone.detectedObjs.Count > 0)
         {
             Transform target = detectionZone.detectedObjs[0].transform;
             Vector2 direction = (target.position - transform.position).normalized;
 
-            if (shootingZone.detectedObjs.Exists(obj => obj.transform == target))
+            if (meleZone.detectedObjs.Exists(obj => obj.transform == target))
             {
-                KilledEnemy.bulletVector2 = direction;
                 MeleAttack(direction);
             }
+            /*else if (shootingZone.detectedObjs.Exists(obj => obj.transform == target))
+            {
+                // Khi ở trong vùng bắn
+                //StartCoroutine(FreeShotSequence(direction));
+            }*/
             else
             {
                 // Trong vùng phát hiện nhưng không trong vùng bắn
@@ -157,8 +136,14 @@ public class Minotaur : MonoBehaviour
             IsMinotaurMoving = false;
             IsShooting = false;
         }
-        Debug.Log("cbc" + comboCount);
     }
+    private void Update()
+    {
+        KilledEnemy.phongLonSpeed = bulletSpeed;
+    }
+
+    
+
     void Flip()
     {
         facingRight = !facingRight;
@@ -169,58 +154,162 @@ public class Minotaur : MonoBehaviour
 
     void ShootArrow(Vector2 direction)
     {
-            // Bắn một viên đạn theo hướng chỉ định
+
+        if (isShooting) return; // Ngăn chặn việc bắn nếu đã bắn trước đó
+        IsShooting = true;
+        /*// Bắn một viên đạn theo hướng chỉ định
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
+        arrow.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+    // Xoay hướng của mũi tên
+    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));*/
+        for (int i = 0; i < 6; i++)
+        {
+            float angle = i * 60; // 360 độ chia cho 36 viên đạn
+            Vector2 shootDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
-            arrow.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;      
+            arrow.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
+            arrow.GetComponent<PhongLonBay>().ReturnToSender(transform);
+        }
+        // Gọi hàm để viên đạn quay trở lại sau một khoảng thời gian
+        //arrow.GetComponent<PhongLonBay>().ReturnToSender(transform);
+        // Đặt lại trạng thái isShooting sau một khoảng thời gian
+        StartCoroutine(ResetShootingStatus(5f));  // 1 giây là ví dụ, bạn có thể điều chỉnh tùy ý
     }
 
-    public float timeToWaitSpin = 0f;
+    private IEnumerator ResetShootingStatus(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isShooting = false;
+    }
 
     void MeleAttack(Vector2 direction)
     {
-        if (comboCount == 0)
-        {          
-                animator.SetTrigger("isMinaSlash");
-            comboCount = 1;
-        }
-        else if (comboCount ==1 )
+        if (isShooting == true)
         {
-            rb.AddForce(direction * 10f * Time.deltaTime);
-            animator.SetTrigger("Dam");
-            //comboCount = -1;
-            comboCount = 2;
+            return; // Dừng combo nếu quái vật đang bắn mũi tên
         }
-        else if (comboCount == 2)
+
+        if (!isComboActive && meleZone.detectedObjs.Count > 0)
         {
-            // đoạn code để chạy animation isReadySpin trong 4f và sau đó chạy đoạn animation isSpin trong 5f
-            StartCoroutine(SpinAttackSequence(direction));
-            comboCount = 3;
+            isComboActive = true;
+            StartCoroutine(ExecuteCombo(direction));
         }
-        else if(comboCount == 3)
-        {
-            // Bắn một viên đạn theo hướng chỉ định
-            GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
-            arrow.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-            comboCount = 0;
-        }
-        //comboCount++;
     }
-    public float spinningSpeed = 50f; 
+
+    private IEnumerator ExecuteCombo(Vector2 direction)
+    {
+        while (meleZone.detectedObjs.Count > 0 && currentComboStep < 5) // Kiểm tra vùng cận chiến và bước combo
+        {
+            //shootingZone.GetComponent<Collider2D>().enabled = false;
+            // Bước 1: isMinaSlash lần 1
+            animator.SetTrigger("isMinaSlash");
+            yield return new WaitForSeconds(nextAttackTime); // Thời gian chờ giữa các bước
+            currentComboStep++;
+
+            // Bước 1: isMinaSlash lần 1
+            animator.SetTrigger("isMinaSlash");
+            yield return new WaitForSeconds(nextAttackTime); // Thời gian chờ giữa các bước
+            currentComboStep++;
+
+            // Bước 2: isMinaSlash lần 2
+            animator.SetTrigger("Dam");
+            AddDashForce();
+            yield return new WaitForSeconds(nextAttackTime);
+            currentComboStep++;
+
+            // Bước 3: Dam lần 1
+            animator.SetTrigger("isMinaSlash");
+            
+            yield return new WaitForSeconds(nextAttackTime);
+            currentComboStep++;
+
+            // Bước 4: Dam lần 2
+            animator.SetTrigger("Dam");
+            AddDashForce();
+            yield return new WaitForSeconds(nextAttackTime);
+            currentComboStep++;
+
+            // Bước 5: SpinAttackSequence
+            
+            yield return StartCoroutine(SpinAttackSequence(direction));          
+            yield return new WaitForSeconds(nextAttackTime);
+            currentComboStep++;
+
+            // Bước 6: Bắn trong 10 giây
+            ShootArrow(direction);
+            //yield return StartCoroutine(FreeShotSequence(direction));
+        }
+        // Reset combo sau khi hoàn thành
+        isComboActive = false;
+        currentComboStep = 0;
+    }
+
+    private void AddDashForce()
+    {
+        if (player == null) return;
+
+        Vector2 direction = (player.position - transform.position).normalized;
+        float dashForce = 10f; // Lực đẩy, bạn có thể điều chỉnh tùy ý
+        rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
+    }
+
+    
     private IEnumerator SpinAttackSequence(Vector2 direction)
     {
         // Chạy animation isReadySpin trong 4 giây
+        IsShooting = false;
         IsReadySpin = true;
         yield return new WaitForSeconds(4f);
         IsReadySpin = false;
-
+        AddDashForce();
         // Chạy animation isSpin trong 5 giây
         //transform.Translate(direction * spinningSpeed * Time.deltaTime);
         IsSpin = true;
         transform.Translate(direction * spinningSpeed * Time.deltaTime);
         yield return new WaitForSeconds(5f);
         IsSpin = false;
+
         yield return new WaitForSeconds(1f);
     }
+    public float timeWait = 2f;
+    
+
+    /*private IEnumerator FreeShotSequence(Vector2 direction)
+    {
+        //shootingZone.GetComponent<Collider2D>().enabled = true;
+        // Trong vùng bắn
+        rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
+        IsMinotaurMoving = false;
+        Debug.Log("is aim " + isAiming);
+        Debug.Log("last shoot time " + lastShootTime);
+        if (!isAiming && Time.time > lastShootTime + shootingInterval)
+        {
+            isAiming = true;
+            IsShooting = true;
+            aimStartTime = Time.time;
+        }
+
+        if (isAiming)
+        {
+            if (Time.time > aimStartTime + aimTime)
+            {
+                KilledEnemy.bulletVector2 = direction;
+                ShootArrow(direction);
+                lastShootTime = Time.time;
+                isAiming = false;
+            }
+            else
+            {
+                isAiming = false;  // Đảm bảo isAiming tắt nếu không bắn
+            }
+        }
+        yield return new WaitForSeconds(10f);
+        //shootingZone.enabled = false;
+        //shootingZone.GetComponent<Collider2D>().enabled = false;
+        isShooting = false;  // Đảm bảo isShooting tắt khi hoàn thành
+    }*/
 
     void LockMovement()
     {

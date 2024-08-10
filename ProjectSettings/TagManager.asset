@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - Enemy
   - Boss
+  - MeleZone
   layers:
   - Default
   - TransparentFX

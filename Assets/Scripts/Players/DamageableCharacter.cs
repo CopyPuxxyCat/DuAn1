@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DamageableCharacter : MonoBehaviour, IDamagable
 {
@@ -90,7 +92,9 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public bool _invincible = false;
 
-    float _health = 3;
+    public float _health = 3;
+    public GameObject[] LivesImage;
+
 
     bool _targetable = true;
 
@@ -101,6 +105,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
         rb = GetComponent<Rigidbody2D>();
         physicCollider = GetComponent<Collider2D>();
+
+
     }
 
 
@@ -155,6 +161,18 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     private void Update()
     {
         TotalKilled();
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < _health)
+            {
+                LivesImage[i].SetActive(true);
+            }
+            else
+            {
+                LivesImage[i].SetActive(false);
+            }
+        }
     }
 
     public void FixedUpdate()

@@ -14,6 +14,7 @@ public class swordHitBox : MonoBehaviour
     public Vector3 faceLeft = new Vector3(-0.4f, -0.2f, 0);
 
 
+
     private void Start()
     {
         if (swordCollider2 == null)
@@ -60,13 +61,13 @@ public class swordHitBox : MonoBehaviour
     {
         if (isFacingRight)
         {
-            Debug.Log("kiem phai");
+            Debug.Log("kiem phai" + faceRight);
             gameObject.transform.localPosition = faceRight;
         }
         else
         {
             gameObject.transform.localPosition = faceLeft;
-            Debug.Log("kiem trai");
+            Debug.Log("kiem trai" + faceLeft);
         }
     }
 

@@ -5231,8 +5231,8 @@ MonoBehaviour:
   Hthoai2: {fileID: 0}
   Hthoai3: {fileID: 0}
   panel: {fileID: 0}
-  moveSpeed: 150
-  maxSpeed: 180
+  moveSpeed: 5
+  maxSpeed: 7
   canMove: 1
   idleFriction: 1
   swordSwingSound: {fileID: 8300000, guid: 389a7ea91c6d13a4cb3a9976bf7d41c7, type: 3}

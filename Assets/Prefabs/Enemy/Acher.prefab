@@ -166,6 +166,37 @@ MonoBehaviour:
   tagTarget: Player
   detectedObjs: []
   col: {fileID: 6866835313628183910}
+--- !u!1 &8776610975866239095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6387407203280953218}
+  m_Layer: 0
+  m_Name: ArrowSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6387407203280953218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776610975866239095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.289, y: -0.105, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7018099245169650549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9026956110758045193
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +234,7 @@ Transform:
   m_Children:
   - {fileID: 5098533603148249469}
   - {fileID: 537628768319741213}
+  - {fileID: 6387407203280953218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5269896303464537686
@@ -381,7 +413,8 @@ MonoBehaviour:
   detectionZone: {fileID: 7799909651303386298}
   shootingZone: {fileID: 6412958971783894082}
   arrowPrefab: {fileID: 2555036136624638622, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
-  arrowSpawnPoint: {fileID: 7018099245169650549}
+  arrowSpawnPoint: {fileID: 6387407203280953218}
+  ultiSpawnPoint: {fileID: 7018099245169650549}
   rb: {fileID: 2305877005682330086}
   idleFriction: 0.9
   shootingInterval: 4

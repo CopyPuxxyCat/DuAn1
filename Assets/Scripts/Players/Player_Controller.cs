@@ -18,8 +18,8 @@ public class Player_Controller : MonoBehaviour
     public bool ShowgiaoTiep;
     public GameObject Panel_giaotiep,Hthoai1,Hthoai2,Hthoai3;
     public GameObject panel;
-    public float moveSpeed = 50f;
-    public float maxSpeed = 4f;
+    public float moveSpeed = 5f;
+    public float maxSpeed = 7f;
     public bool canMove = true;
     public float idleFriction = 0.9f;
 
@@ -153,7 +153,6 @@ public class Player_Controller : MonoBehaviour
                 float limitedSpeed = Mathf.Lerp(rb.velocity.magnitude, maxSpeed, idleFriction);
                 rb.velocity = rb.velocity.normalized * limitedSpeed;
             }
-            Debug.Log("input" + movementInput);
             // control whether looking left or right
             if (movementInput.x > 0)
             {

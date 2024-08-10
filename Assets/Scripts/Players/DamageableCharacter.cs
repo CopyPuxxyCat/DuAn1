@@ -32,7 +32,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     // health
     public float player_health = 10f; // Health cho player
     public float enemy_health = 3f;  // Health cho enemy
-    public float boss_health = 3f;  // Health cho boss
+    public float boss_health = 15f;  // Health cho boss
 
     public GameObject GameOver;
 
@@ -55,7 +55,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                     animator.SetTrigger("hit");
                     RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
                     textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                    Debug.Log("play mat 1 mau");
+                    //Debug.Log("play mat 1 mau");
                     Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
                     textTransform.SetParent(canvas.transform);
                 }
@@ -66,6 +66,10 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 {
                     animator.SetBool("isAlive", false);
                     targetAble = false;
+                    // hien panel gameover
+                    Time.timeScale = 0f;
+                    GameOver.SetActive(true);
+                    KilledEnemy.sharedValue = 0;
                 }
             }
             else if (gameObject.CompareTag("Enemy"))
@@ -75,7 +79,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                     animator.SetTrigger("hit");
                     RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
                     textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                    Debug.Log("quai mat 1 mau");
+                    //Debug.Log("quai mat 1 mau");
                     Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
                     textTransform.SetParent(canvas.transform);
                 }
@@ -127,6 +131,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
     }
 
+    // Health cu
     /*public float Health
     {
         set
@@ -253,7 +258,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     {
         TotalKilled();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < player_health; i++)
         {
             if (i < _health)
             {

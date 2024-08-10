@@ -145,37 +145,27 @@ public class Player_Controller : MonoBehaviour
             // this dont allow player to run faster than the max speed
             //rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
 
-            rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
-
-            /*float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            Vector2 movement = new Vector2(horizontalInput, verticalInput);
-            transform.Translate(movement * moveSpeed * Time.deltaTime);
-
-            // Điều chỉnh scale theo hướng di chuyển
-            if (horizontalInput > 0)
-                transform.localScale = new Vector3(1, 1, 1);
-            else if (horizontalInput < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
+            //rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
+            transform.Translate(movementInput * moveSpeed * Time.deltaTime);
 
             if (rb.velocity.magnitude > maxSpeed)
             {
                 float limitedSpeed = Mathf.Lerp(rb.velocity.magnitude, maxSpeed, idleFriction);
                 rb.velocity = rb.velocity.normalized * limitedSpeed;
-            }*/
-
+            }
+            Debug.Log("input" + movementInput);
             // control whether looking left or right
-            if(movementInput.x > 0)
+            if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
-                
+
                 // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", true);
-            } else if(movementInput.x < 0)
+            }
+            else if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
-                
+
                 // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", false);
             }

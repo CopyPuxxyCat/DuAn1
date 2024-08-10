@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tp
-  - enemy
   - Canvas
   - shop
   - NPC
+  - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

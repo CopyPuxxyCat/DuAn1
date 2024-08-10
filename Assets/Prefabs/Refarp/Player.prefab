@@ -5205,8 +5205,13 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.3
   isInvincibleEnable: 1
+  player_health: 10
+  enemy_health: 3
+  boss_health: 15
   GameOver: {fileID: 0}
   _invincible: 0
+  _health: 3
+  LivesImage: []
 --- !u!114 &511079101602974291
 MonoBehaviour:
   m_ObjectHideFlags: 0

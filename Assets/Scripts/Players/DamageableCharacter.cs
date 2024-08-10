@@ -38,8 +38,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public bool _invincible = false;
 
-    public float _health = 3;
-    public GameObject[] LivesImage;
+    //public float _health = 3;
+    //public GameObject[] LivesImage;
 
 
     bool _targetable = true;
@@ -240,25 +240,28 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
-        kill = 1;
-        KilledEnemy.sharedValue += kill;
-        KilledEnemy.enemyVector3 = gameObject.transform.position;
+        if (gameObject.CompareTag("Enemy"))
+        {
+            kill = 1;
+            KilledEnemy.sharedValue += kill;
+            KilledEnemy.enemyVector3 = gameObject.transform.position;
+        }
     }
 
-    public int TotalKilled()
+    /*public int TotalKilled()
     {
         Debug.Log("KilledEnemy.sharedValue" + KilledEnemy.sharedValue);
         totalKill = kill;
         Debug.Log("da giet tong cong: " + KilledEnemy.sharedValue);
         return totalKill;
-    }
+    }*/
 
     
     private void Update()
     {
-        TotalKilled();
+        //TotalKilled();
 
-        for (int i = 0; i < player_health; i++)
+        /*for (int i = 0; i < player_health; i++)
         {
             if (i < _health)
             {
@@ -268,7 +271,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             {
                 LivesImage[i].SetActive(false);
             }
-        }
+        }*/
     }
 
     public void FixedUpdate()

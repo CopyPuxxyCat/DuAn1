@@ -61,13 +61,11 @@ public class swordHitBox : MonoBehaviour
     {
         if (isFacingRight)
         {
-            Debug.Log("kiem phai" + faceRight);
             gameObject.transform.localPosition = faceRight;
         }
         else
         {
             gameObject.transform.localPosition = faceLeft;
-            Debug.Log("kiem trai" + faceLeft);
         }
     }
 

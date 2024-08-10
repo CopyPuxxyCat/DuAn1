@@ -118,6 +118,8 @@ public class Player_Controller : MonoBehaviour
             Hthoai3.SetActive(false);
         }
     }
+    
+    // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("shop"))

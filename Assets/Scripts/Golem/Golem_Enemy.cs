@@ -80,6 +80,7 @@ public class Golem_Enemy : MonoBehaviour
                     if (Time.time > aimStartTime + aimTime)
                     {
                         // Hoàn thành quá trình ngắm bắn và bắn tên
+                        // lay direc tion cho bullet de knockback
                         KilledEnemy.bulletVector2 = direction;
                         ShootArrow(direction);
                         lastShootTime = Time.time;

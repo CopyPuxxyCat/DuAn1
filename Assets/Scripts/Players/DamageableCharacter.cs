@@ -33,7 +33,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     // health
     public float player_health = 10f; // Health cho player
     public float enemy_health = 3f;  // Health cho enemy
-    public float boss_health = 15f;  // Health cho boss
+    public float boss_health = 10f;  // Health cho boss
 
     public GameObject GameOver;
 
@@ -118,7 +118,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             if (gameObject.CompareTag("Player"))
             {
-                KilledEnemy.player_health_Manager = player_health;
+                //KilledEnemy.player_health_Manager = player_health;
                 return player_health;
             }
             else if (gameObject.CompareTag("Enemy"))
@@ -127,7 +127,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             }
             else if (gameObject.CompareTag("Boss"))
             {
-                KilledEnemy.player_health_Manager = boss_health;
+                //KilledEnemy.player_health_Manager = boss_health;
                 return boss_health;
             }
             return 0f;
@@ -215,7 +215,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
         get
         {
-            KilledEnemy.player_health_Manager = boss_health;
+            KilledEnemy.boss_health_Manager = boss_health;         
             return boss_health;
         }
     }
@@ -290,7 +290,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
         rb = GetComponent<Rigidbody2D>();
         physicCollider = GetComponent<Collider2D>();
-
 
     }
 
@@ -413,6 +412,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 LivesImage[i].SetActive(false);
             }
         }*/
+
+        Debug.Log("mau quai dc: " + BossHealth);
     }
 
     public void FixedUpdate()

@@ -5205,6 +5205,7 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.3
   isInvincibleEnable: 1
+  isAlive: 1
   player_health: 10
   enemy_health: 3
   boss_health: 15
@@ -5238,6 +5239,7 @@ MonoBehaviour:
   dashSpeed: 28
   dashDuration: 0.0005
   dashCooldown: 1
+  thanhmau_Player: {fileID: 0}
   dashParticleSystem: {fileID: 1119011722007001110}
   stopDuration: 0.5
   timeToWait: 0.1

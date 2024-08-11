@@ -26,6 +26,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     Collider2D physicCollider;
 
     Rigidbody2D rb;
+    public 
 
     bool isAlive = true;
 
@@ -118,6 +119,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             if (gameObject.CompareTag("Player"))
             {
+                
                 return player_health;
 
             }

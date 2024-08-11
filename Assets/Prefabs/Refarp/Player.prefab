@@ -5440,6 +5440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thanh_mau canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8496930840660595426, guid: 63e1b10920a42fa419ad1a70942d57b2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

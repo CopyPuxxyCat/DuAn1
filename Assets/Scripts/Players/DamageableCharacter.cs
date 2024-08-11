@@ -29,8 +29,105 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     bool isAlive = true;
 
+    // health
+    public float player_health = 10f; // Health cho player
+    public float enemy_health = 3f;  // Health cho enemy
+    public float boss_health = 3f;  // Health cho boss
+
     public GameObject GameOver;
+
+    public bool _invincible = false;
+
+    public float _health = 3;
+    public GameObject[] LivesImage;
+
+
+    bool _targetable = true;
+
     public float Health
+    {
+        set
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                if (value < player_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    Debug.Log("play mat 1 mau");
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                player_health = value;
+
+                if (player_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                if (value < enemy_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    Debug.Log("quai mat 1 mau");
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                enemy_health = value;
+
+                if (enemy_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                if (value < enemy_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                enemy_health = value;
+
+                if (enemy_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
+            }
+        }
+        get
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                return player_health;
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                return enemy_health;
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                return boss_health;
+            }
+            return 0f;
+        }
+    }
+
+    /*public float Health
     {
         set
         {
@@ -63,7 +160,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             return _health;
         }
-    }
+    }*/
 
     public bool targetAble
     {
@@ -90,13 +187,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
     }
 
-    public bool _invincible = false;
-
-    public float _health = 3;
-    public GameObject[] LivesImage;
-
-
-    bool _targetable = true;
+    
 
     private void Start()
     {

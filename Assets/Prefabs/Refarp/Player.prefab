@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordDamage: 1
-  knockbackForce: 2
+  knockbackForce: 4
   swordCollider2: {fileID: 4706990036169085431}
   faceRight: {x: 0.4, y: -0.2, z: 0}
   faceLeft: {x: -0.4, y: -0.2, z: 0}
@@ -5205,9 +5205,6 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.3
   isInvincibleEnable: 1
-  player_health: 10
-  enemy_health: 3
-  boss_health: 15
   GameOver: {fileID: 0}
   _invincible: 0
 --- !u!114 &511079101602974291
@@ -5229,8 +5226,8 @@ MonoBehaviour:
   Hthoai2: {fileID: 0}
   Hthoai3: {fileID: 0}
   panel: {fileID: 0}
-  moveSpeed: 5
-  maxSpeed: 7
+  moveSpeed: 150
+  maxSpeed: 180
   canMove: 1
   idleFriction: 1
   swordSwingSound: {fileID: 8300000, guid: 389a7ea91c6d13a4cb3a9976bf7d41c7, type: 3}

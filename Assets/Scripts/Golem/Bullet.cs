@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public float timeToWait = 0.3f;
     Animator animator;
 
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -52,6 +54,7 @@ public class Bullet : MonoBehaviour
         {
 
         }
+
     }
 
 }

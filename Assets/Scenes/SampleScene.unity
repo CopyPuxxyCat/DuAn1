@@ -1062,6 +1062,14 @@ PrefabInstance:
       propertyPath: GameOver
       value: 
       objectReference: {fileID: 1857502578}
+    - target: {fileID: 511079101602974291, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
+      propertyPath: maxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 511079101602974291, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1497127332872853043, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.45

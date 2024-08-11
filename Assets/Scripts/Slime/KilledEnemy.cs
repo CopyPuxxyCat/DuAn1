@@ -10,6 +10,4 @@ public static class KilledEnemy
     public static UnityEngine.Vector3 enemyVector3;
 
     public static UnityEngine.Vector2 bulletVector2;
-
-    public static float player_health;
 }

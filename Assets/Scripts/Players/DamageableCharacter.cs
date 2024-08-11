@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DamageableCharacter : MonoBehaviour, IDamagable
 {
@@ -30,6 +28,9 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     bool isAlive = true;
 
+<<<<<<< HEAD
+    public GameObject GameOver;
+=======
     // health
     public float player_health = 10f; // Health cho player
     public float enemy_health = 3f;  // Health cho enemy
@@ -45,10 +46,13 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     bool _targetable = true;
 
+>>>>>>> parent of 52a5dd2 (Revert "Merge pull request #144 from CopyPuxxyCat/Hung")
     public float Health
     {
         set
         {
+<<<<<<< HEAD
+=======
             if (gameObject.CompareTag("Player"))
             {
                 if (value < player_health)
@@ -119,9 +123,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             if (gameObject.CompareTag("Player"))
             {
-                
+                KilledEnemy.player_health_Manager = player_health;
                 return player_health;
-
             }
             else if (gameObject.CompareTag("Enemy"))
             {
@@ -140,6 +143,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     {
         set
         {
+>>>>>>> parent of 52a5dd2 (Revert "Merge pull request #144 from CopyPuxxyCat/Hung")
             if (value < _health)
             {
                 animator.SetTrigger("hit");
@@ -169,7 +173,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             return _health;
         }
-    }*/
+    }
 
     public bool targetAble
     {
@@ -196,7 +200,11 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
     }
 
-    
+    public bool _invincible = false;
+
+    float _health = 3;
+
+    bool _targetable = true;
 
     private void Start()
     {
@@ -205,8 +213,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
         rb = GetComponent<Rigidbody2D>();
         physicCollider = GetComponent<Collider2D>();
-
-
     }
 
 
@@ -263,6 +269,9 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     
     private void Update()
     {
+<<<<<<< HEAD
+        TotalKilled();
+=======
         //TotalKilled();
 
         /*for (int i = 0; i < player_health; i++)
@@ -276,6 +285,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 LivesImage[i].SetActive(false);
             }
         }*/
+>>>>>>> parent of 52a5dd2 (Revert "Merge pull request #144 from CopyPuxxyCat/Hung")
     }
 
     public void FixedUpdate()

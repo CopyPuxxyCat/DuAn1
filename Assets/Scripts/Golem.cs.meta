@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Golem.cs.meta
+guid: a94b550eb4e7c6b449a0b695981d599d
+========
+guid: 866f2a9be6705d740825d4daef9fef8e
+>>>>>>>> origin/Q.Huy:Assets/Scripts/Minotaur/AlexMonster.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

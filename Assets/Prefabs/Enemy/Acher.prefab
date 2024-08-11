@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2003323555164981624}
   m_Layer: 0
   m_Name: Acher
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,13 +388,8 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.25
   isInvincibleEnable: 0
-  player_health: 10
-  enemy_health: 3
-  boss_health: 3
   GameOver: {fileID: 0}
   _invincible: 0
-  _health: 3
-  LivesImage: []
 --- !u!114 &2003323555164981624
 MonoBehaviour:
   m_ObjectHideFlags: 0

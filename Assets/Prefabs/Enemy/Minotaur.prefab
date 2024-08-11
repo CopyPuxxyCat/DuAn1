@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 5630840729091080383}
   - component: {fileID: 7491123460942141681}
   - component: {fileID: 8241476009756241736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Minotaur
   m_TagString: Boss
   m_Icon: {fileID: 0}

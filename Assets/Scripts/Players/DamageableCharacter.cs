@@ -10,6 +10,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     //public GameObject gameObject;
 
+
     public bool disableSimulation = false;
 
     public float invincibleTime = 0.25f;
@@ -63,6 +64,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 {
                     animator.SetBool("isAlive", false);
                     targetAble = false;
+                    GameOver.SetActive(true);
                 }
             }
             else if (gameObject.CompareTag("Enemy"))
@@ -110,6 +112,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             if (gameObject.CompareTag("Player"))
             {
+                KilledEnemy.player_health = player_health;
                 return player_health;
             }
             else if (gameObject.CompareTag("Enemy"))
@@ -204,7 +207,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
        if( !invincible)
         {
             Health -= damage;
-
+            
             // apply force
             rb.AddForce(knockback, ForceMode2D.Impulse);
 
@@ -249,6 +252,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     private void Update()
     {
         TotalKilled();
+
+
     }
 
     public void FixedUpdate()

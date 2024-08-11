@@ -5276,11 +5276,11 @@ MonoBehaviour:
   dashParticleSystem: {fileID: 1119011722007001110}
   stopDuration: 0.5
   timeToWait: 0.1
-  mageSprite: {fileID: 0}
-  mageAnimator: {fileID: 0}
-  fireballPrefab: {fileID: 0}
-  fireballSpawnPoint: {fileID: 0}
-  fireballSpeed: 10
+  mageSprite: {fileID: 21300000, guid: 9780f53257286f949ac781cf7a673882, type: 3}
+  mageAnimator: {fileID: 9100000, guid: 8d7b2c81fcce6464797465a1b8b3f170, type: 2}
+  fireballPrefab: {fileID: 2555036136624638622, guid: cbc0ab45fd3bcc2469c01e767af2f74c, type: 3}
+  fireballSpawnPoint: {fileID: 1206312964175727551}
+  fireballSpeed: 7
 --- !u!82 &7010266771371024413
 AudioSource:
   m_ObjectHideFlags: 0

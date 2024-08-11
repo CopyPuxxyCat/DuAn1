@@ -288,6 +288,7 @@ public class Player_Controller : MonoBehaviour
         if (isMage)
         {
             FireFireball();
+            animator.SetTrigger("swordAttack");
         }
         else
         {
@@ -298,14 +299,17 @@ public class Player_Controller : MonoBehaviour
 
     void FireFireball()
     {
-        Vector2 fireDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - fireballSpawnPoint.position;
-        fireDirection.Normalize();
+        if (canMove == true)
+        {
+            Vector2 fireDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - fireballSpawnPoint.position;
+            fireDirection.Normalize();
 
-        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
-        fireball.GetComponent<Rigidbody2D>().velocity = fireDirection * fireballSpeed;
+            GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+            fireball.GetComponent<Rigidbody2D>().velocity = fireDirection * fireballSpeed;
 
-        float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
-        fireball.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
+            fireball.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
     }
     /*void OnFire()
     {

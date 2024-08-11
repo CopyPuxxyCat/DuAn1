@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     public float knockbackForce = 2f;
     public Collider2D bulletCollider2;
     public float timeToWait = 0.3f;
-    private readonly float timeToDestroy = 1f;
     Animator animator;
 
     private void Start()
@@ -31,14 +30,6 @@ public class Bullet : MonoBehaviour
         bulletCollider2.enabled = true;
     }
 
-    IEnumerator WaittoDesTroy()
-    {
-        
-        yield return new WaitForSeconds(timeToDestroy);
-        // Thực hiện hành động ở đây
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamagable damagealeObject = collision.GetComponent<IDamagable>();
@@ -53,7 +44,8 @@ public class Bullet : MonoBehaviour
             // make it hit by passing the Vector2 force to the rb
             damagealeObject.OnHit(bulletDamage, knockback);
             animator.SetTrigger("bulletHit");
-            StartCoroutine(WaittoDesTroy());
+            GetComponent<Rigidbody2D>().simulated = false;
+            Destroy(gameObject, 1f);
         }
         else
         {

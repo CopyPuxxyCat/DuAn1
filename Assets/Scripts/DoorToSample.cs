@@ -28,6 +28,7 @@ public class DoorToSample : MonoBehaviour
         if (enterAllowed == true)
         {
             SceneManager.LoadScene("SampleScene");
+            KilledEnemy.sharedValue = 0;
         }
     }
 }

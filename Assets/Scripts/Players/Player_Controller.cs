@@ -90,10 +90,37 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    public GameObject portalPrefab; // Prefab của cổng dịch chuyển
+    public float distanceToPlayer = 1f; // Khoảng cách từ người chơi đến cổng
+
+    private bool hasPortal = false;
+
+    public void CreatePortalAtPlayerRight()
+    {
+        if (!hasPortal)
+        {
+            // Lấy vị trí của người chơi
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+            // Tính toán vị trí của cổng dịch chuyển
+            Vector3 portalPosition = playerPosition + Vector3.right * distanceToPlayer;
+
+            // Tạo cổng dịch chuyển
+            Instantiate(portalPrefab, portalPosition, Quaternion.identity);
+
+            hasPortal = true;
+        }
+    }
+
     private void Update()
     {
-        Debug.Log("mau nv: " + KilledEnemy.player_health_Manager);
+        Debug.Log("giet mina chua: " + KilledEnemy.isMinotaurKilled);
         thanhmau_Player.value = KilledEnemy.player_health_Manager;
+
+        if(KilledEnemy.isMinotaurKilled == true)
+        {
+            CreatePortalAtPlayerRight();
+        }
 
         // bien hinh
         if (Input.GetKeyDown(KeyCode.R))
@@ -160,6 +187,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
     
+
     // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {

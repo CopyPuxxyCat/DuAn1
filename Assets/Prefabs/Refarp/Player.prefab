@@ -5242,7 +5242,7 @@ MonoBehaviour:
   player_health: 10
   enemy_health: 3
   boss_health: 10
-  GameOver: {fileID: 0}
+  GameOver: {fileID: 7318466146147416478, guid: 92f13f2b15531114792a503becf77610, type: 3}
   _invincible: 0
 --- !u!114 &511079101602974291
 MonoBehaviour:
@@ -5281,6 +5281,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 2555036136624638622, guid: cbc0ab45fd3bcc2469c01e767af2f74c, type: 3}
   fireballSpawnPoint: {fileID: 1206312964175727551}
   fireballSpeed: 7
+  portalPrefab: {fileID: 9216405887785776815, guid: d06146b0d3cf4b846b7610d17f6c15f9, type: 3}
+  distanceToPlayer: 1
 --- !u!82 &7010266771371024413
 AudioSource:
   m_ObjectHideFlags: 0

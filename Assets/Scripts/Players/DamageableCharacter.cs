@@ -61,6 +61,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 }
 
                 player_health = value;
+                //KilledEnemy.player_health_manager = player_health;
 
                 if (player_health <= 0)
                 {
@@ -118,6 +119,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             if (gameObject.CompareTag("Player"))
             {
                 return player_health;
+
             }
             else if (gameObject.CompareTag("Enemy"))
             {

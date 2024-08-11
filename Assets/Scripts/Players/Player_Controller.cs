@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -56,6 +57,10 @@ public class Player_Controller : MonoBehaviour
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
 
+    //mau player
+    public float Player_health;
+    public Slider thanhmau_Player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,11 +80,15 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
+        Player_health = KilledEnemy.player_health;
+        thanhmau_Player.value = Player_health;
         // Update dash cooldown
         if (dashCooldownTime > 0)
         {
             dashCooldownTime -= Time.deltaTime;
         }
+        Debug.Log(+Player_health);
+        Debug.Log(+KilledEnemy.player_health);
 
         // Handle dashing
         if (isDashing)

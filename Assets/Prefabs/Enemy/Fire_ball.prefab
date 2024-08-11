@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4158617215620176952}
   - component: {fileID: 4420386315548868017}
   m_Layer: 0
-  m_Name: Bullet 2
+  m_Name: Fire_ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555036136624638622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

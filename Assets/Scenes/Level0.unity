@@ -1013,6 +1013,17 @@ Transform:
   - {fileID: 1152462235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &573540174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3700506634745387535, guid: ca637baa33f9e9c44bd6367858baee61, type: 3}
+  m_PrefabInstance: {fileID: 6077529425607262135}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581460860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9063230736260005918, guid: 851e398c74acc23498f2fce49973289d, type: 3}
@@ -3116,6 +3127,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 885193847}
     - target: {fileID: 80224496092690618, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
+      propertyPath: thanhmau_Player
+      value: 
+      objectReference: {fileID: 573540174}
+    - target: {fileID: 80224496092690618, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
       propertyPath: LivesImage.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -3159,6 +3174,10 @@ PrefabInstance:
       propertyPath: Panel_giaotiep
       value: 
       objectReference: {fileID: 1975241620}
+    - target: {fileID: 511079101602974291, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
+      propertyPath: thanhmau_Player
+      value: 
+      objectReference: {fileID: 573540174}
     - target: {fileID: 1497127332872853043, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.006994486
@@ -28284,6 +28303,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1430072628}
+    - target: {fileID: 3700506634745387535, guid: ca637baa33f9e9c44bd6367858baee61, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3700506634745387535, guid: ca637baa33f9e9c44bd6367858baee61, type: 3}
       propertyPath: m_TargetGraphic
       value: 

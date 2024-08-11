@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tp
-  - enemy
   - Canvas
   - shop
   - NPC
+  - Enemy
+  - Boss
+  - MeleZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

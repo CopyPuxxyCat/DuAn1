@@ -38,9 +38,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public bool _invincible = false;
 
-    public float _health = 3;
-    public GameObject[] LivesImage;
-
 
     bool _targetable = true;
 
@@ -252,18 +249,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     private void Update()
     {
         TotalKilled();
-
-        for (int i = 0; i < 3; i++)
-        {
-            if (i < _health)
-            {
-                LivesImage[i].SetActive(true);
-            }
-            else
-            {
-                LivesImage[i].SetActive(false);
-            }
-        }
     }
 
     public void FixedUpdate()

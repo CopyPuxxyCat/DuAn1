@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class Player_Controller : MonoBehaviour
     private bool isDashing = false;
     private float dashTime = 0f;
     private float dashCooldownTime = 0f;
+
+    public Slider thanhmau_Player;
 
     // Particle system for dashing
     public ParticleSystem dashParticleSystem;

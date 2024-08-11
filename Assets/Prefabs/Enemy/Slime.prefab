@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4592172896255363773}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +273,7 @@ MonoBehaviour:
   moveSpeed: 150
   detectionZone: {fileID: 5481654609733051335}
   rb: {fileID: 12518734316889755}
+  idleFriction: 0.9
 --- !u!114 &4592172896255363773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,5 +290,10 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.25
   isInvincibleEnable: 0
+  player_health: 10
+  enemy_health: 3
+  boss_health: 3
   GameOver: {fileID: 0}
   _invincible: 0
+  _health: 3
+  LivesImage: []

@@ -110,6 +110,11 @@ public class Player_Controller : MonoBehaviour
             Time.timeScale = 0f;
             panel.SetActive(true);
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            panel.SetActive(false);
+            Time.timeScale = 1f;
+        }
         if(ShowgiaoTiep && Input.GetKey(KeyCode.E))
         {
             Time.timeScale = 1f;

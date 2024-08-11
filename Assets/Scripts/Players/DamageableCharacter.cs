@@ -62,7 +62,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 }
 
                 player_health = value;
-                //KilledEnemy.player_health_manager = player_health;
 
                 if (player_health <= 0)
                 {
@@ -128,9 +127,96 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             }
             else if (gameObject.CompareTag("Boss"))
             {
+                KilledEnemy.player_health_Manager = boss_health;
                 return boss_health;
             }
             return 0f;
+        }
+    }
+
+    public float PlayerHealth
+    {
+        set
+        {
+            if (value < player_health)
+            {
+                animator.SetTrigger("hit");
+                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                textTransform.SetParent(canvas.transform);
+            }
+
+            player_health = value;
+
+            if (player_health <= 0)
+            {
+                animator.SetBool("isAlive", false);
+                targetAble = false;
+                Time.timeScale = 0f;
+                GameOver.SetActive(true);
+                KilledEnemy.sharedValue = 0;
+            }
+        }
+        get
+        {
+            KilledEnemy.player_health_Manager = player_health;
+            return player_health;
+        }
+    }
+
+    public float EnemyHealth
+    {
+        set
+        {
+            if (value < enemy_health)
+            {
+                animator.SetTrigger("hit");
+                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                textTransform.SetParent(canvas.transform);
+            }
+
+            enemy_health = value;
+
+            if (enemy_health <= 0)
+            {
+                animator.SetBool("isAlive", false);
+                targetAble = false;
+            }
+        }
+        get
+        {
+            return enemy_health;
+        }
+    }
+
+    public float BossHealth
+    {
+        set
+        {
+            if (value < boss_health)
+            {
+                animator.SetTrigger("hit");
+                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                textTransform.SetParent(canvas.transform);
+            }
+
+            boss_health = value;
+
+            if (boss_health <= 0)
+            {
+                animator.SetBool("isAlive", false);
+                targetAble = false;
+            }
+        }
+        get
+        {
+            KilledEnemy.player_health_Manager = boss_health;
+            return boss_health;
         }
     }
 
@@ -214,7 +300,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     {
        if( !invincible)
         {
-            Health -= damage;
+            /*Health -= damage;
 
             // apply force
             rb.AddForce(knockback, ForceMode2D.Impulse);
@@ -222,6 +308,33 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             if(isInvincibleEnable)
             {
                 invincible = true;
+            }*/
+
+            if (gameObject.CompareTag("Player"))
+            {
+                PlayerHealth -= damage;
+
+                // apply force
+                rb.AddForce(knockback, ForceMode2D.Impulse);
+
+                if (isInvincibleEnable)
+                {
+                    invincible = true;
+                }
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                EnemyHealth -= damage;
+
+                // apply force
+                rb.AddForce(knockback, ForceMode2D.Impulse);
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                BossHealth -= damage;
+
+                // apply force
+                rb.AddForce(knockback, ForceMode2D.Impulse);
             }
         }
     }
@@ -230,12 +343,37 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public void OnHit(float damage)
     {
-        if ( !invincible)
+        if (!invincible)
         {
-            Health -= damage;
-            if (isInvincibleEnable)
+            /*Health -= damage;
+
+            // apply force
+            rb.AddForce(knockback, ForceMode2D.Impulse);
+
+            if(isInvincibleEnable)
             {
                 invincible = true;
+            }*/
+
+            if (gameObject.CompareTag("Player"))
+            {
+                PlayerHealth -= damage;
+
+                // apply force
+
+
+                if (isInvincibleEnable)
+                {
+                    invincible = true;
+                }
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                EnemyHealth -= damage;
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                BossHealth -= damage;
             }
         }
     }

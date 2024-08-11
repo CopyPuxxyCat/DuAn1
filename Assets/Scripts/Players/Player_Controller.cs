@@ -60,7 +60,7 @@ public class Player_Controller : MonoBehaviour
     public float timeToWait = 0.1f;
 
     // mau nv
-    private float player_health;
+    private float player_health = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -77,14 +77,12 @@ public class Player_Controller : MonoBehaviour
         {
             dashParticleSystem.Stop();
         }
+
     }
 
     private void Update()
     {
-        
         player_health = KilledEnemy.player_health_Manager;
-        Debug.Log("mau hien tai" + player_health);
-        Debug.Log(KilledEnemy.player_health_Manager);
         thanhmau_Player.value = player_health;
         // Update dash cooldown
         if (dashCooldownTime > 0)
@@ -150,6 +148,7 @@ public class Player_Controller : MonoBehaviour
  
     private void FixedUpdate()
     {
+        
         // Prevent movement during dash and stop period
         if (isDashing || isStopping)
         {

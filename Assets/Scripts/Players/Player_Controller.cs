@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class Player_Controller : MonoBehaviour
     public bool ShowgiaoTiep;
     public GameObject Panel_giaotiep,Hthoai1,Hthoai2,Hthoai3;
     public GameObject panel;
-    public float moveSpeed = 50f;
-    public float maxSpeed = 4f;
+    public float moveSpeed = 5f;
+    public float maxSpeed = 7f;
     public bool canMove = true;
     public float idleFriction = 0.9f;
 
@@ -47,6 +48,8 @@ public class Player_Controller : MonoBehaviour
     private float dashTime = 0f;
     private float dashCooldownTime = 0f;
 
+    public Slider thanhmau_Player;
+
     // Particle system for dashing
     public ParticleSystem dashParticleSystem;
 
@@ -55,6 +58,9 @@ public class Player_Controller : MonoBehaviour
     private bool isStopping = false;
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
+
+    // mau nv
+    private float player_health;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +81,11 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
+        
+        player_health = KilledEnemy.player_health_Manager;
+        Debug.Log("mau hien tai" + player_health);
+        Debug.Log(KilledEnemy.player_health_Manager);
+        thanhmau_Player.value = player_health;
         // Update dash cooldown
         if (dashCooldownTime > 0)
         {
@@ -110,6 +121,11 @@ public class Player_Controller : MonoBehaviour
             Time.timeScale = 0f;
             panel.SetActive(true);
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            panel.SetActive(false);
+            Time.timeScale = 1f;
+        }
         if(ShowgiaoTiep && Input.GetKey(KeyCode.E))
         {
             Time.timeScale = 1f;
@@ -118,6 +134,8 @@ public class Player_Controller : MonoBehaviour
             Hthoai3.SetActive(false);
         }
     }
+    
+    // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("shop"))
@@ -145,37 +163,26 @@ public class Player_Controller : MonoBehaviour
             // this dont allow player to run faster than the max speed
             //rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
 
-            rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
-
-            /*float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            Vector2 movement = new Vector2(horizontalInput, verticalInput);
-            transform.Translate(movement * moveSpeed * Time.deltaTime);
-
-            // Điều chỉnh scale theo hướng di chuyển
-            if (horizontalInput > 0)
-                transform.localScale = new Vector3(1, 1, 1);
-            else if (horizontalInput < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
+            //rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
+            transform.Translate(movementInput * moveSpeed * Time.deltaTime);
 
             if (rb.velocity.magnitude > maxSpeed)
             {
                 float limitedSpeed = Mathf.Lerp(rb.velocity.magnitude, maxSpeed, idleFriction);
                 rb.velocity = rb.velocity.normalized * limitedSpeed;
-            }*/
-
+            }
             // control whether looking left or right
-            if(movementInput.x > 0)
+            if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
-                
+
                 // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", true);
-            } else if(movementInput.x < 0)
+            }
+            else if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
-                
+
                 // flip the sword
                 gameObject.BroadcastMessage("isFacingRight", false);
             }

@@ -166,6 +166,37 @@ MonoBehaviour:
   tagTarget: Player
   detectedObjs: []
   col: {fileID: 6866835313628183910}
+--- !u!1 &8776610975866239095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6387407203280953218}
+  m_Layer: 0
+  m_Name: ArrowSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6387407203280953218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776610975866239095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.289, y: -0.105, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7018099245169650549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9026956110758045193
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,12 +210,11 @@ GameObject:
   - component: {fileID: 2305877005682330086}
   - component: {fileID: 5482607013962714998}
   - component: {fileID: 3972760353740108146}
-  - component: {fileID: 8962016469250187213}
   - component: {fileID: 2276230655650784704}
   - component: {fileID: 2003323555164981624}
   m_Layer: 0
   m_Name: Acher
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +234,7 @@ Transform:
   m_Children:
   - {fileID: 5098533603148249469}
   - {fileID: 537628768319741213}
+  - {fileID: 6387407203280953218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5269896303464537686
@@ -341,24 +372,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8962016469250187213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9026956110758045193}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfdf3b6196507104d8ca9a1f8d3e9048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  knockbackForce: 2
-  moveSpeed: 150
-  detectionZone: {fileID: 7799909651303386298}
-  rb: {fileID: 2305877005682330086}
-  idleFriction: 0.9
 --- !u!114 &2276230655650784704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,8 +388,13 @@ MonoBehaviour:
   disableSimulation: 1
   invincibleTime: 0.25
   isInvincibleEnable: 0
+  player_health: 10
+  enemy_health: 3
+  boss_health: 3
   GameOver: {fileID: 0}
   _invincible: 0
+  _health: 3
+  LivesImage: []
 --- !u!114 &2003323555164981624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +413,8 @@ MonoBehaviour:
   detectionZone: {fileID: 7799909651303386298}
   shootingZone: {fileID: 6412958971783894082}
   arrowPrefab: {fileID: 2555036136624638622, guid: fc2cf64c1388fc34e9eb70593f7df835, type: 3}
-  arrowSpawnPoint: {fileID: 7018099245169650549}
+  arrowSpawnPoint: {fileID: 6387407203280953218}
+  ultiSpawnPoint: {fileID: 7018099245169650549}
   rb: {fileID: 2305877005682330086}
   idleFriction: 0.9
   shootingInterval: 4

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DamageableCharacter : MonoBehaviour, IDamagable
 {
@@ -24,11 +26,116 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     Collider2D physicCollider;
 
     Rigidbody2D rb;
+    public 
 
     bool isAlive = true;
 
+    // health
+    public float player_health = 10f; // Health cho player
+    public float enemy_health = 3f;  // Health cho enemy
+    public float boss_health = 15f;  // Health cho boss
+
     public GameObject GameOver;
+
+    public bool _invincible = false;
+
+    //public float _health = 3;
+    //public GameObject[] LivesImage;
+
+
+    bool _targetable = true;
+
     public float Health
+    {
+        set
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                if (value < player_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    //Debug.Log("play mat 1 mau");
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                player_health = value;
+                //KilledEnemy.player_health_manager = player_health;
+
+                if (player_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                    // hien panel gameover
+                    Time.timeScale = 0f;
+                    GameOver.SetActive(true);
+                    KilledEnemy.sharedValue = 0;
+                }
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                if (value < enemy_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    //Debug.Log("quai mat 1 mau");
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                enemy_health = value;
+
+                if (enemy_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                if (value < enemy_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
+
+                enemy_health = value;
+
+                if (enemy_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
+            }
+        }
+        get
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                KilledEnemy.player_health_Manager = player_health;
+                return player_health;
+            }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                return enemy_health;
+            }
+            else if (gameObject.CompareTag("Boss"))
+            {
+                return boss_health;
+            }
+            return 0f;
+        }
+    }
+
+    // Health cu
+    /*public float Health
     {
         set
         {
@@ -61,7 +168,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             return _health;
         }
-    }
+    }*/
 
     public bool targetAble
     {
@@ -88,11 +195,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         }
     }
 
-    public bool _invincible = false;
-
-    float _health = 3;
-
-    bool _targetable = true;
+    
 
     private void Start()
     {
@@ -101,6 +204,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
         rb = GetComponent<Rigidbody2D>();
         physicCollider = GetComponent<Collider2D>();
+
+
     }
 
 
@@ -138,23 +243,38 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
-        kill = 1;
-        KilledEnemy.sharedValue += kill;
-        KilledEnemy.enemyVector3 = gameObject.transform.position;
+        if (gameObject.CompareTag("Enemy"))
+        {
+            kill = 1;
+            KilledEnemy.sharedValue += kill;
+            KilledEnemy.enemyVector3 = gameObject.transform.position;
+        }
     }
 
-    public int TotalKilled()
+    /*public int TotalKilled()
     {
         Debug.Log("KilledEnemy.sharedValue" + KilledEnemy.sharedValue);
         totalKill = kill;
         Debug.Log("da giet tong cong: " + KilledEnemy.sharedValue);
         return totalKill;
-    }
+    }*/
 
     
     private void Update()
     {
-        TotalKilled();
+        //TotalKilled();
+
+        /*for (int i = 0; i < player_health; i++)
+        {
+            if (i < _health)
+            {
+                LivesImage[i].SetActive(true);
+            }
+            else
+            {
+                LivesImage[i].SetActive(false);
+            }
+        }*/
     }
 
     public void FixedUpdate()

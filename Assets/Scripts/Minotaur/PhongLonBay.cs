@@ -97,8 +97,6 @@ public class PhongLonBay : MonoBehaviour
                 damagealeObject.OnHit(bulletDamage, knockback);
 
                 Destroy(gameObject);
-
-                Debug.Log("dinh dmg");
             }
         }
     }

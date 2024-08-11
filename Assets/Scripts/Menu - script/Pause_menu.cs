@@ -32,7 +32,7 @@ public class Pause_menu : MonoBehaviour
     }
     public void QuitGame()
     {
-
+        
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -42,6 +42,7 @@ public class Pause_menu : MonoBehaviour
     }
     public void Menu_return()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MenuScene");
     }
 

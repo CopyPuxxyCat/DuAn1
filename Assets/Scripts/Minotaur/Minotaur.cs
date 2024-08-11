@@ -84,7 +84,6 @@ public class Minotaur : MonoBehaviour
 
     // mau
     public Slider thanhmau_Boss;
-    private float boss_health;
 
     private void Start()
     {
@@ -144,9 +143,8 @@ public class Minotaur : MonoBehaviour
     }
     private void Update()
     {
-        boss_health = KilledEnemy.player_health_Manager;
-        thanhmau_Boss.value = boss_health;
-        Debug.Log("mau boss" + boss_health);
+        thanhmau_Boss.value = KilledEnemy.boss_health_Manager;
+        Debug.Log("thanh mau: " + thanhmau_Boss.value);
         KilledEnemy.phongLonSpeed = bulletSpeed;
     }
 

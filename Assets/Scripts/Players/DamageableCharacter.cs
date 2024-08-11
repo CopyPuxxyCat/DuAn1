@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,14 +27,14 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     Collider2D physicCollider;
 
     Rigidbody2D rb;
-    public 
+    public
 
     bool isAlive = true;
 
     // health
     public float player_health = 10f; // Health cho player
     public float enemy_health = 3f;  // Health cho enemy
-    public float boss_health = 15f;  // Health cho boss
+    public float boss_health = 10f;  // Health cho boss
 
     public GameObject GameOver;
 
@@ -45,7 +46,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     bool _targetable = true;
 
-    public float Health
+    /*public float Health
     {
         set
         {
@@ -118,9 +119,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
         {
             if (gameObject.CompareTag("Player"))
             {
-                
+                //KilledEnemy.player_health_Manager = player_health;
                 return player_health;
-
             }
             else if (gameObject.CompareTag("Enemy"))
             {
@@ -128,96 +128,128 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             }
             else if (gameObject.CompareTag("Boss"))
             {
-                KilledEnemy.player_health_Manager = boss_health;
+                //KilledEnemy.player_health_Manager = boss_health;
                 return boss_health;
             }
             return 0f;
         }
-    }
+    }*/
 
     public float PlayerHealth
     {
         set
         {
-            if (value < player_health)
+            if (gameObject.CompareTag("Player"))
             {
-                animator.SetTrigger("hit");
-                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
-                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-                textTransform.SetParent(canvas.transform);
-            }
+                if (value < player_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
 
-            player_health = value;
+                player_health = value;
 
-            if (player_health <= 0)
-            {
-                animator.SetBool("isAlive", false);
-                targetAble = false;
-                Time.timeScale = 0f;
-                GameOver.SetActive(true);
-                KilledEnemy.sharedValue = 0;
+                if (player_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                    Time.timeScale = 0f;
+                    GameOver.SetActive(true);
+                    KilledEnemy.sharedValue = 0;
+                }
             }
         }
         get
         {
-            KilledEnemy.player_health_Manager = player_health;
-            return player_health;
+            if (gameObject.CompareTag("Player"))
+            {
+                KilledEnemy.player_health_Manager = player_health;
+                return player_health;
+            }
+            else
+            {
+            return 0f;
         }
+    }
     }
 
     public float EnemyHealth
     {
         set
         {
-            if (value < enemy_health)
+            if (gameObject.CompareTag("Enemy"))
             {
-                animator.SetTrigger("hit");
-                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
-                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-                textTransform.SetParent(canvas.transform);
-            }
+                if (value < enemy_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
 
-            enemy_health = value;
+                enemy_health = value;
 
-            if (enemy_health <= 0)
-            {
-                animator.SetBool("isAlive", false);
-                targetAble = false;
+                if (enemy_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
             }
         }
         get
         {
-            return enemy_health;
+            if (gameObject.CompareTag("Enemy"))
+            { 
+                KilledEnemy.enemy_health_manager = enemy_health;
+                return enemy_health;
+            }
+            else
+            {
+                return 0f;
+            }
         }
     }
+    
 
     public float BossHealth
     {
         set
         {
-            if (value < boss_health)
+            if (gameObject.CompareTag("Boss"))
             {
-                animator.SetTrigger("hit");
-                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
-                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-                Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-                textTransform.SetParent(canvas.transform);
-            }
+                if (value < boss_health)
+                {
+                    animator.SetTrigger("hit");
+                    RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                    textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                    Canvas canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+                    textTransform.SetParent(canvas.transform);
+                }
 
-            boss_health = value;
+                boss_health = value;
 
-            if (boss_health <= 0)
-            {
-                animator.SetBool("isAlive", false);
-                targetAble = false;
+                if (boss_health <= 0)
+                {
+                    animator.SetBool("isAlive", false);
+                    targetAble = false;
+                }
             }
         }
         get
         {
-            KilledEnemy.player_health_Manager = boss_health;
-            return boss_health;
+            if (gameObject.CompareTag("Boss"))
+            {
+                KilledEnemy.boss_health_Manager = boss_health;
+                return boss_health;
+            }
+            else
+            {
+                return 0f;
+            }
         }
     }
 
@@ -291,7 +323,6 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
         rb = GetComponent<Rigidbody2D>();
         physicCollider = GetComponent<Collider2D>();
-
 
     }
 
@@ -414,6 +445,8 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
                 LivesImage[i].SetActive(false);
             }
         }*/
+
+        Debug.Log("mau quai dc: " + BossHealth);
     }
 
     public void FixedUpdate()

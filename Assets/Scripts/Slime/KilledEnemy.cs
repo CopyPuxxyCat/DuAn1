@@ -15,4 +15,5 @@ public static class KilledEnemy
 
     public static float player_health_Manager;
     public static float boss_health_Manager;
+    public static float enemy_health_manager;
 }

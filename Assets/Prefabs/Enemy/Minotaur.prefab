@@ -764,7 +764,7 @@ MonoBehaviour:
   player_health: 10
   enemy_health: 3
   boss_health: 15
-  GameOver: {fileID: 0}
+  GameOver: {fileID: 7318466146147416478, guid: 92f13f2b15531114792a503becf77610, type: 3}
   _invincible: 0
 --- !u!114 &8241476009756241736
 MonoBehaviour:
@@ -790,7 +790,7 @@ MonoBehaviour:
   rb: {fileID: 5650993878149141142}
   idleFriction: 0.9
   shootingInterval: 3
-  player: {fileID: 0}
+  player: {fileID: 1497127332872853043, guid: 70d085f5fe5a5434b9743f358c1860e4, type: 3}
   aimTime: 0.5
   attackRate: 1
   spinningSpeed: 10

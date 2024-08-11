@@ -5209,7 +5209,7 @@ MonoBehaviour:
   isAlive: 1
   player_health: 10
   enemy_health: 3
-  boss_health: 15
+  boss_health: 10
   GameOver: {fileID: 0}
   _invincible: 0
 --- !u!114 &511079101602974291

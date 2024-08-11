@@ -59,10 +59,7 @@ public class Player_Controller : MonoBehaviour
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of 52a5dd2 (Revert "Merge pull request #144 from CopyPuxxyCat/Hung")
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +113,11 @@ public class Player_Controller : MonoBehaviour
         {
             Time.timeScale = 0f;
             panel.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            panel.SetActive(false);
+            Time.timeScale = 1f;
         }
         if(ShowgiaoTiep && Input.GetKey(KeyCode.E))
         {

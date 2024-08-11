@@ -28,7 +28,6 @@ public class Golem_Enemy : MonoBehaviour
     public DetectionZone shootingZone; // Thêm vùng bắn
     public GameObject arrowPrefab; // Prefab của cung tên
     public Transform arrowSpawnPoint; // Điểm xuất phát của cung tên
-    public Transform ultiSpawnPoint; // Điểm xuất phát của cung tên
     public Rigidbody2D rb;
     public float idleFriction = 0.9f;
     public float shootingInterval = 3f; // Khoảng thời gian giữa các lần bắn
@@ -80,7 +79,6 @@ public class Golem_Enemy : MonoBehaviour
                     if (Time.time > aimStartTime + aimTime)
                     {
                         // Hoàn thành quá trình ngắm bắn và bắn tên
-                        // lay direc tion cho bullet de knockback
                         KilledEnemy.bulletVector2 = direction;
                         ShootArrow(direction);
                         lastShootTime = Time.time;
@@ -136,7 +134,7 @@ public class Golem_Enemy : MonoBehaviour
             {
                 float angle = i * 20; // 360 độ chia cho 36 viên đạn
                 Vector2 shootDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-                GameObject arrow = Instantiate(arrowPrefab, ultiSpawnPoint.position, Quaternion.identity);
+                GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
                 arrow.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
             }
             shootCount = -1; // Reset đếm sau khi bắn 36 viên đạn

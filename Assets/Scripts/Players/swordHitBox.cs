@@ -14,7 +14,6 @@ public class swordHitBox : MonoBehaviour
     public Vector3 faceLeft = new Vector3(-0.4f, -0.2f, 0);
 
 
-
     private void Start()
     {
         if (swordCollider2 == null)

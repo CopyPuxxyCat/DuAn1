@@ -34,7 +34,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     // health
     public float player_health = 10f; // Health cho player
     public float enemy_health = 3f;  // Health cho enemy
-    public float boss_health = 10f;  // Health cho boss
+    public float boss_health = 15f;  // Health cho boss
 
     public GameObject GameOver;
 

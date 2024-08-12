@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class boss : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class boss : MonoBehaviour
     public Vector3 move;
     public Transform nem;
     public Rigidbody2D rb;
+
+    public Slider thanhmau_Boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,7 @@ public class boss : MonoBehaviour
             move = Players.transform.position - transform.position;
             transform.position += move * 1f * Time.deltaTime;
         }
-
+        thanhmau_Boss.value = KilledEnemy.boss_health_Manager;
     }
     IEnumerator hoisinh()
     {
@@ -75,5 +78,18 @@ public class boss : MonoBehaviour
         ani.SetBool("chet", true);
         ani.SetBool("run", false);
         dichuyen++;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Collider2D collider = col.collider;
+        IDamagable damageable = collider.GetComponent<IDamagable>();
+
+        if (damageable != null)
+        {
+            Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * 2f;
+            damageable.OnHit(1f, knockback);
+        }
     }
 }

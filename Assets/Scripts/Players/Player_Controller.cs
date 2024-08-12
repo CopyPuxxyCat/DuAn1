@@ -27,6 +27,10 @@ public class Player_Controller : MonoBehaviour
     // audio
     public AudioClip swordSwingSound;
     AudioSource audioSword;
+    public AudioClip healsound;
+    AudioSource audioHeal;
+    public AudioClip Dash;
+    AudioSource audioDash;
 
     public GameObject swordHitBox;
 
@@ -78,7 +82,8 @@ public class Player_Controller : MonoBehaviour
         swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         audioSword = GetComponent<AudioSource>();
-
+        audioHeal = GetComponent<AudioSource>();
+        audioDash = GetComponent<AudioSource>();
         // sprite and animator goc cua player
         originalSprite = spriteRenderer.sprite;
         originalAnimator = animator.runtimeAnimatorController;
@@ -137,6 +142,7 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             PlayerRegen();
+            PlayHealsound();
         }
 
             // bien hinh
@@ -183,6 +189,7 @@ public class Player_Controller : MonoBehaviour
         {
             StartDash();
             //StartCoroutine(WaitAfterDashToMove());
+            PlayDashSound();
         }
 
         if (showshop && Input.GetKey(KeyCode.E))
@@ -318,6 +325,20 @@ public class Player_Controller : MonoBehaviour
         if (audioSword != null && swordSwingSound != null)
         {
             audioSword.PlayOneShot(swordSwingSound);
+        }
+    }
+    void PlayHealsound()
+    {
+        if (audioHeal != null && healsound != null)
+        {
+            audioHeal.PlayOneShot(healsound);
+        }
+    }
+    void PlayDashSound()
+    {
+        if (audioDash != null && Dash != null)
+        {
+            audioDash.PlayOneShot(Dash);
         }
     }
 

@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator WaitAfterShoot()
     {
-        animator.SetTrigger("bulletHit");
+        //animator.SetTrigger("bulletHit");
         yield return new WaitForSeconds(timeToWait);
         // Thực hiện hành động ở đây
         bulletCollider2.enabled = true;
@@ -43,10 +43,9 @@ public class Bullet : MonoBehaviour
 
             // make it hit by passing the Vector2 force to the rb
             damagealeObject.OnHit(bulletDamage, knockback);
-
-            Destroy(gameObject);
-
-            Debug.Log("dinh dmg");
+            animator.SetTrigger("bulletHit");
+            GetComponent<Rigidbody2D>().simulated = false;
+            Destroy(gameObject, 1f);
         }
         else
         {

@@ -335,38 +335,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 714047701847734993, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 218197841}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
---- !u!1 &218197840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 714047701847734993, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
-  m_PrefabInstance: {fileID: 218197839}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &218197841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218197840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29c3743c1651c840b1e4884bbf49746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  disableSimulation: 0
-  invincibleTime: 0.25
-  isInvincibleEnable: 0
-  isAlive: 1
-  player_health: 10
-  enemy_health: 3
-  boss_health: 10
-  GameOver: {fileID: 0}
-  _invincible: 0
 --- !u!1001 &248148062
 PrefabInstance:
   m_ObjectHideFlags: 0

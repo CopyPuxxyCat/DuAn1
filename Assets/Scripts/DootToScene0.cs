@@ -10,16 +10,16 @@ public class DootToScene0 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            enterAllowed = true;
-            Debug.Log("Cham");
-            // Load a new scene when the player enters the door
-
+            StartCoroutine(WaitToActive());
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    IEnumerator WaitToActive()
+    {
+        yield return new WaitForSeconds(10f);
+        // Thực hiện hành động ở đây
+        enterAllowed = true;
+        KilledEnemy.sharedValue = 0;
     }
 
     // Update is called once per frame
@@ -28,6 +28,7 @@ public class DootToScene0 : MonoBehaviour
         if (enterAllowed == true)
         {
             SceneManager.LoadScene("Level0");
+
         }
     }
 }

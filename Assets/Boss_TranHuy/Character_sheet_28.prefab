@@ -33,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8811463367654624593}
-  - {fileID: 1367981805044050395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6851609838730653721
@@ -121,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fcc4f9259d37a94ea22871856277d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
+  bossslider: {fileID: 0}
   ani: {fileID: 0}
   Players: {fileID: 0}
   lazer: {fileID: 1737493517928280632}
@@ -128,7 +129,7 @@ MonoBehaviour:
   dichuyenphe: 0
   dichuyen: 0
   move: {x: 0, y: 0, z: 0}
-  nem: {fileID: 1367981805044050395}
+  nem: {fileID: 0}
   rb: {fileID: 0}
 --- !u!1 &1737493517928280632
 GameObject:
@@ -4960,34 +4961,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &6037084528304254185
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1367981805044050395}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1367981805044050395
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037084528304254185}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.31, y: 0.19, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5512032786678439508}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

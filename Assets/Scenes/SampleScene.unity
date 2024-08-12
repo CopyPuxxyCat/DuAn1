@@ -599,9 +599,13 @@ MonoBehaviour:
   Darkness: {fileID: 884135680}
   monsters:
   - {fileID: 6731288878110951796, guid: 83f0f8d9cfb1b314f8c0ac46b2df7333, type: 3}
+  - {fileID: 9026956110758045193, guid: 65f1d6ceaa53037498396a5189132841, type: 3}
   decorations:
   - {fileID: 8000868335123175926, guid: dba2232b4c5f8dc4cabad639c8e70579, type: 3}
+  - {fileID: 5313569289792921088, guid: 2e5362d1c5268a649aa21771011ba4e6, type: 3}
+  - {fileID: 2659510459456194267, guid: f9c205bf6cd9d67478ac034adf5b0def, type: 3}
   portalPrefab: {fileID: 9216405887785776815, guid: d06146b0d3cf4b846b7610d17f6c15f9, type: 3}
+  healthPotionPrefabs: {fileID: 7882098831149211970, guid: 8ca5846482880214cbe9fccef42a1a09, type: 3}
 --- !u!4 &619923466
 Transform:
   m_ObjectHideFlags: 0

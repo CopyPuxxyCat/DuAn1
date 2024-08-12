@@ -12,4 +12,8 @@ public static class KilledEnemy
     public static UnityEngine.Vector2 bulletVector2;
 
     public static float phongLonSpeed;
+
+    public static float player_health_Manager;
+    public static float boss_health_Manager;
+    public static float enemy_health_manager;
 }

@@ -355,6 +355,7 @@ public class Player_Controller : MonoBehaviour
         {
             FireFireball();
             animator.SetTrigger("swordAttack");
+            PlaySwordSwingSound();
         }
         else
         {

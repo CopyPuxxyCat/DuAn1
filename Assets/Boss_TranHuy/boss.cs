@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class boss : MonoBehaviour
 {
+    public DamageableCharacter heal;
+    public Slider bossslider;
     public Animator ani;
     public GameObject Players,lazer,da;
     public float dichuyenphe;
@@ -12,27 +15,30 @@ public class boss : MonoBehaviour
     public Vector3 move;
     public Transform nem;
     public Rigidbody2D rb;
+    public DamageableCharacter dp;
     // Start is called before the first frame update
     void Start()
     {
+        heal = FindObjectOfType<DamageableCharacter>();
         ani = GetComponent<Animator>();
         dichuyenphe = transform.position.x;
         StartCoroutine(hoisinh());
         rb = GetComponent<Rigidbody2D>();
+        dp = GetComponent<DamageableCharacter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        bossslider.value = KilledEnemy.boss_health_Manager;
         float dichuyenboss = transform.position.x;
-        if(dichuyenboss < dichuyenphe)
+        if (dichuyenboss < dichuyenphe)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if(dichuyenboss > dichuyenphe)
+        else if (dichuyenboss > dichuyenphe)
         {
-            transform.localScale = new Vector3(1,1,1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         dichuyenphe = dichuyenboss;
         if (dichuyen == 1)
@@ -40,7 +46,15 @@ public class boss : MonoBehaviour
             move = Players.transform.position - transform.position;
             transform.position += move * 1f * Time.deltaTime;
         }
-
+        /*if (heal.boss_health < 0)
+        {
+            ani.SetBool("chet", true);
+            Destroy(this.gameObject, 5f);
+        }*/
+        if(dp.boss_health <= 0)
+        {
+            dichuyen++;
+        }
     }
     IEnumerator hoisinh()
     {
@@ -71,9 +85,17 @@ public class boss : MonoBehaviour
         GameObject go = Instantiate(da, nem.position, nem.rotation);
         Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
         rb.AddForce(nem.right * 2f * Mathf.Sign(transform.localScale.x), ForceMode2D.Impulse);
-        yield return new WaitForSeconds(1f);
-        ani.SetBool("chet", true);
-        ani.SetBool("run", false);
-        dichuyen++;
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Collider2D collider = col.collider;
+        IDamagable damageable = collider.GetComponent<IDamagable>();
+
+        if (damageable != null)
+        {
+            Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * 2f;
+            damageable.OnHit(1, knockback);
+        }
     }
 }

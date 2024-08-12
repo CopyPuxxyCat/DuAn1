@@ -58,6 +58,7 @@ public class Player_Controller : MonoBehaviour
     private bool isStopping = false;
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
+    public DamageableCharacter dp;
 
     // Mage shjt
     private bool isMage = false;
@@ -72,6 +73,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dp = FindObjectOfType<DamageableCharacter>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -191,9 +193,9 @@ public class Player_Controller : MonoBehaviour
     // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("shop"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            showshop = true;
+            dp.player_health -= 1;
         }
         if (collision.gameObject.CompareTag("NPC"))
         {

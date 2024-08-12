@@ -23,7 +23,7 @@ public class Player_Controller : MonoBehaviour
     public float maxSpeed = 7f;
     public bool canMove = true;
     public float idleFriction = 0.9f;
-
+    public DamageableCharacter dp;
     // audio
     public AudioClip swordSwingSound;
     AudioSource audioSword;
@@ -72,6 +72,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dp = FindObjectOfType<DamageableCharacter>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -111,7 +112,10 @@ public class Player_Controller : MonoBehaviour
             hasPortal = true;
         }
     }
-
+    private void OnParticleCollision(GameObject other)
+    {
+        dp.player_health -= 1f;
+    }
     public void PlayerRegen()
     {
         
@@ -124,7 +128,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("giet mina chua: " + KilledEnemy.isMinotaurKilled);
+        Debug.Log("mau nv: " + KilledEnemy.player_health_Manager);
         thanhmau_Player.value = KilledEnemy.player_health_Manager;
 
         if(KilledEnemy.isMinotaurKilled == true)

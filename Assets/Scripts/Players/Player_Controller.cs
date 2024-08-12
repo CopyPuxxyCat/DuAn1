@@ -58,7 +58,6 @@ public class Player_Controller : MonoBehaviour
     private bool isStopping = false;
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
-    public DamageableCharacter dp;
 
     // Mage shjt
     private bool isMage = false;
@@ -73,7 +72,6 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dp = FindObjectOfType<DamageableCharacter>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -114,16 +112,6 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    public void PlayerRegen()
-    {
-        
-        if(KilledEnemy.TongSoBinhMau > 0 && KilledEnemy.TongSoBinhMau < 11)
-        {
-            KilledEnemy.player_health_Manager++;
-            KilledEnemy.isHealthRegen = true;
-        }
-    }
-
     private void Update()
     {
         Debug.Log("giet mina chua: " + KilledEnemy.isMinotaurKilled);
@@ -134,15 +122,8 @@ public class Player_Controller : MonoBehaviour
             CreatePortalAtPlayerRight();
         }
 
-
-        // hoi mau
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            PlayerRegen();
-        }
-
-            // bien hinh
-            if (Input.GetKeyDown(KeyCode.R))
+        // bien hinh
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (isMage)
             {
@@ -210,9 +191,9 @@ public class Player_Controller : MonoBehaviour
     // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("shop"))
         {
-            dp.player_health -= 1;
+            showshop = true;
         }
         if (collision.gameObject.CompareTag("NPC"))
         {
@@ -336,7 +317,6 @@ public class Player_Controller : MonoBehaviour
         {
             FireFireball();
             animator.SetTrigger("swordAttack");
-            PlaySwordSwingSound();
         }
         else
         {

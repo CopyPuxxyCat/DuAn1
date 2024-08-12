@@ -17,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossMinotaur.unity
     guid: 32c66e3708e3c40408f8509143ffa7b7
-  - enabled: 1
-    path: Assets/Scenes/BOSSLV2.unity
-    guid: b5cfb77bb4b9410489f2974c1ec96862
   m_configObjects: {}

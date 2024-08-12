@@ -9,7 +9,6 @@ public static class KilledEnemy
     public static int sharedValue;
     public static bool isMinotaurKilled;
     public static UnityEngine.Vector3 enemyVector3;
-    public static bool isEnemyDie;
 
     public static UnityEngine.Vector2 bulletVector2;
 
@@ -18,7 +17,4 @@ public static class KilledEnemy
     public static float player_health_Manager;
     public static float boss_health_Manager;
     public static float enemy_health_manager;
-
-    public static float TongSoBinhMau;
-    public static bool isHealthRegen;
 }

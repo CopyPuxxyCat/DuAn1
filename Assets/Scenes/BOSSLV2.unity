@@ -292,6 +292,38 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: TriggerModule.enter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333263518981684481, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2689540916700696242, guid: df76bcc6ed33f2545a7738af7c430dff, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

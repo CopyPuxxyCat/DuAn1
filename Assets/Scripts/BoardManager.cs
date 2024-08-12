@@ -52,6 +52,9 @@ public class BoardManager : MonoBehaviour {
     public GameObject portalPrefab;
     public List<Subdungeon> allSubdungeons = new List<Subdungeon>();
 
+    private UnityEngine.Vector3 enemyDeathVector3;
+    public GameObject healthPotionPrefabs;
+
     public class Subdungeon
     {
 
@@ -501,7 +504,7 @@ public class BoardManager : MonoBehaviour {
 
         if (subdungeon.isLeaf())
         {
-            for (int i = 0; i < 1; i++) // number of decorations per room, adjust as needed
+            for (int i = 0; i < 3; i++) // number of decorations per room, adjust as needed
             {
                 Vector3 decorationPosition = new Vector3(
                     Random.Range(subdungeon.room.x + 1, subdungeon.room.xMax - 1),
@@ -561,6 +564,17 @@ public class BoardManager : MonoBehaviour {
 
     }
 
+    public void CreatePotion()
+    {
+        if(KilledEnemy.isEnemyDie == true)
+        {
+            enemyDeathVector3 = KilledEnemy.enemyVector3;
+            Debug.Log("binh mau da in tai vi tri: " + enemyDeathVector3);
+            Instantiate(healthPotionPrefabs,enemyDeathVector3, Quaternion.identity);
+            KilledEnemy.isEnemyDie = false;
+        }
+    }
+
     public void CheckForPortal()
     {
         int totalMonstersKilled = KilledEnemy.sharedValue;
@@ -595,6 +609,7 @@ public class BoardManager : MonoBehaviour {
         pos.z = -9f; //the darkness must be above the main camera but below the minimap camera 
         Darkness.transform.position = pos; //the darkness follows the player, moves when the player does.
         CheckForPortal();
+        CreatePotion();
     }
 
     public void OnMonsterKilled(Vector3 monsterPosition)

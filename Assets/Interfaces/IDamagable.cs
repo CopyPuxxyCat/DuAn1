@@ -4,7 +4,9 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    public float Health { get; set; }
+    public float PlayerHealth { get; set; }
+    public float EnemyHealth { get; set; }
+    public float BossHealth { get; set; }
     public bool targetAble { get; set; }
 
     public bool invincible { get; set; }

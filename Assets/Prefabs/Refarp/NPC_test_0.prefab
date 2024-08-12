@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8037536298640107506}
   - component: {fileID: 3958197201141744614}
   - component: {fileID: -4309367056779742391}
+  - component: {fileID: 3172552980789202674}
+  - component: {fileID: 8523362844775562060}
   m_Layer: 0
   m_Name: NPC_test_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,4 +159,47 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!114 &3172552980789202674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415336846041312173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29c3743c1651c840b1e4884bbf49746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 646210489230855289, guid: a9e32ae3c9296c34193ef0c85db19232, type: 3}
+  disableSimulation: 0
+  invincibleTime: 0.25
+  isInvincibleEnable: 0
+  isAlive: 1
+  player_health: 10
+  enemy_health: 3
+  boss_health: 10
+  GameOver: {fileID: 7318466146147416478, guid: 92f13f2b15531114792a503becf77610, type: 3}
+  _invincible: 0
+--- !u!95 &8523362844775562060
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415336846041312173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c59e6f13e87b824484ef3acfb04b6b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

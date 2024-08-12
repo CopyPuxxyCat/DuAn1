@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Minotaur : MonoBehaviour
 {
@@ -81,6 +82,9 @@ public class Minotaur : MonoBehaviour
 
     public float spinningSpeed = 1550f;
 
+    // mau
+    public Slider thanhmau_Boss;
+
     private void Start()
     {
         rb.GetComponent<Rigidbody2D>();
@@ -139,6 +143,8 @@ public class Minotaur : MonoBehaviour
     }
     private void Update()
     {
+        thanhmau_Boss.value = KilledEnemy.boss_health_Manager;
+        Debug.Log("thanh mau: " + thanhmau_Boss.value);
         KilledEnemy.phongLonSpeed = bulletSpeed;
     }
 

@@ -16,7 +16,7 @@ public class DootToScene0 : MonoBehaviour
 
     IEnumerator WaitToActive()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0f);
         // Thực hiện hành động ở đây
         enterAllowed = true;
         KilledEnemy.sharedValue = 0;

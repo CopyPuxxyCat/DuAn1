@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -186,6 +185,7 @@ public class Player_Controller : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0)
         {
             StartDash();
+            PlaySwordSwingSound();
             //StartCoroutine(WaitAfterDashToMove());
         }
 

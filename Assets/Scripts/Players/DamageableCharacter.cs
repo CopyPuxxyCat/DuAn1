@@ -418,6 +418,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
             kill = 1;
             KilledEnemy.sharedValue += kill;
             KilledEnemy.enemyVector3 = gameObject.transform.position;
+            KilledEnemy.isEnemyDie = true;
         }
         /*if (gameObject.CompareTag("Boss"))
         {
@@ -437,21 +438,14 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
     
     private void Update()
     {
-        //TotalKilled();
-
-        /*for (int i = 0; i < player_health; i++)
+        if(KilledEnemy.isHealthRegen == true)
         {
-            if (i < _health)
+            if(player_health > 0 && player_health < 10)
             {
-                LivesImage[i].SetActive(true);
+                player_health = player_health + 1;
             }
-            else
-            {
-                LivesImage[i].SetActive(false);
-            }
-        }*/
-
-        Debug.Log("mau quai dc: " + BossHealth);
+            KilledEnemy.isHealthRegen = false;
+        }
     }
 
     public void FixedUpdate()

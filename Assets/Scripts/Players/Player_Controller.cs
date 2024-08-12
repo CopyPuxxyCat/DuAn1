@@ -112,6 +112,16 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    public void PlayerRegen()
+    {
+        
+        if(KilledEnemy.TongSoBinhMau > 0 && KilledEnemy.TongSoBinhMau < 11)
+        {
+            KilledEnemy.player_health_Manager++;
+            KilledEnemy.isHealthRegen = true;
+        }
+    }
+
     private void Update()
     {
         Debug.Log("giet mina chua: " + KilledEnemy.isMinotaurKilled);
@@ -122,8 +132,15 @@ public class Player_Controller : MonoBehaviour
             CreatePortalAtPlayerRight();
         }
 
-        // bien hinh
-        if (Input.GetKeyDown(KeyCode.R))
+
+        // hoi mau
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PlayerRegen();
+        }
+
+            // bien hinh
+            if (Input.GetKeyDown(KeyCode.R))
         {
             if (isMage)
             {

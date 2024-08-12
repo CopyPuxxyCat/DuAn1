@@ -28,7 +28,7 @@ public class DootToScene0 : MonoBehaviour
         if (enterAllowed == true)
         {
             SceneManager.LoadScene("Level0");
-
+            KilledEnemy.isMinotaurKilled = false;
         }
     }
 }

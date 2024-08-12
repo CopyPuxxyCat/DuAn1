@@ -7,6 +7,7 @@ using UnityEngine;
 public static class KilledEnemy
 {
     public static int sharedValue;
+    public static bool isMinotaurKilled;
     public static UnityEngine.Vector3 enemyVector3;
 
     public static UnityEngine.Vector2 bulletVector2;

@@ -234,6 +234,7 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
                 if (boss_health <= 0)
                 {
+                    KilledEnemy.isMinotaurKilled = true;
                     animator.SetBool("isAlive", false);
                     targetAble = false;
                 }
@@ -412,13 +413,17 @@ public class DamageableCharacter : MonoBehaviour, IDamagable
 
     public void OnObjectDestroyed()
     {
-        Destroy(gameObject);
         if (gameObject.CompareTag("Enemy"))
         {
             kill = 1;
             KilledEnemy.sharedValue += kill;
             KilledEnemy.enemyVector3 = gameObject.transform.position;
         }
+        /*if (gameObject.CompareTag("Boss"))
+        {
+            KilledEnemy.isMinotaurKilled = true;
+        }*/
+        Destroy(gameObject);
     }
 
     /*public int TotalKilled()

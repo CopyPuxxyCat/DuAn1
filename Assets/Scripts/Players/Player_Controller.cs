@@ -58,16 +58,32 @@ public class Player_Controller : MonoBehaviour
     private bool isStopping = false;
     private float stopTime = 0f;
     public float timeToWait = 0.1f;
+    public DamageableCharacter dp;
+
+    // Mage shjt
+    private bool isMage = false;
+    public Sprite mageSprite;
+    public RuntimeAnimatorController mageAnimator;
+    public GameObject fireballPrefab;
+    public Transform fireballSpawnPoint;
+    public float fireballSpeed = 10f;
+    private Sprite originalSprite;
+    private RuntimeAnimatorController originalAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+        dp = FindObjectOfType<DamageableCharacter>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         swordCollider = swordHitBox.GetComponent<Collider2D>();
 
         audioSword = GetComponent<AudioSource>();
+
+        // sprite and animator goc cua player
+        originalSprite = spriteRenderer.sprite;
+        originalAnimator = animator.runtimeAnimatorController;
 
         // Ensure the particle system is initially disabled
         if (dashParticleSystem != null)
@@ -76,10 +92,54 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    public GameObject portalPrefab; // Prefab của cổng dịch chuyển
+    public float distanceToPlayer = 1f; // Khoảng cách từ người chơi đến cổng
+
+    private bool hasPortal = false;
+
+    public void CreatePortalAtPlayerRight()
+    {
+        if (!hasPortal)
+        {
+            // Lấy vị trí của người chơi
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+            // Tính toán vị trí của cổng dịch chuyển
+            Vector3 portalPosition = playerPosition + Vector3.right * distanceToPlayer;
+
+            // Tạo cổng dịch chuyển
+            Instantiate(portalPrefab, portalPosition, Quaternion.identity);
+
+            hasPortal = true;
+        }
+    }
+
     private void Update()
     {
-        Debug.Log("mau nv: " + KilledEnemy.player_health_Manager);
+        Debug.Log("giet mina chua: " + KilledEnemy.isMinotaurKilled);
         thanhmau_Player.value = KilledEnemy.player_health_Manager;
+
+        if(KilledEnemy.isMinotaurKilled == true)
+        {
+            CreatePortalAtPlayerRight();
+        }
+
+        // bien hinh
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (isMage)
+            {
+                TransformToPlayer();
+                animator.SetBool("isAlive", true);
+
+            }
+            else
+            {
+                TransformToMage();
+                animator.SetBool("isAlive", true);
+            }
+        }
+
         // Update dash cooldown
         if (dashCooldownTime > 0)
         {
@@ -129,12 +189,13 @@ public class Player_Controller : MonoBehaviour
         }
     }
     
+
     // shop
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("shop"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            showshop = true;
+            dp.player_health -= 1;
         }
         if (collision.gameObject.CompareTag("NPC"))
         {
@@ -195,6 +256,34 @@ public class Player_Controller : MonoBehaviour
         
     }
 
+    // bien hinh
+    void TransformToMage()
+    {
+        if (isMage) return;
+        isMage = true;
+
+        // Reset trigger hoặc các điều kiện liên quan đến trạng thái die nếu cần thiết
+        //animator.ResetTrigger("die");
+        animator.SetBool("isAlive", true);
+
+        spriteRenderer.sprite = mageSprite;
+        animator.runtimeAnimatorController = mageAnimator;
+        Debug.Log("Biến hình thành Mage!");
+    }
+
+    void TransformToPlayer()
+    {
+        if (!isMage) return;
+        isMage = false;
+
+        //animator.ResetTrigger("die");
+        animator.SetBool("isAlive", true);
+
+        spriteRenderer.sprite = originalSprite; // Biến originalSprite cần được lưu trữ khi Start.
+        animator.runtimeAnimatorController = originalAnimator; // Biến originalAnimator cần được lưu trữ khi Start.
+        Debug.Log("Biến trở lại thành Player!");
+    }
+
     IEnumerator WaitAfterDashToMove()
     {
         yield return new WaitForSeconds(timeToWait);
@@ -223,12 +312,40 @@ public class Player_Controller : MonoBehaviour
         movementInput = value.Get<Vector2>();
     }
 
-    // slash
+    // slash and shoot
     void OnFire()
+    {
+        if (isMage)
+        {
+            FireFireball();
+            animator.SetTrigger("swordAttack");
+        }
+        else
+        {
+            animator.SetTrigger("swordAttack");
+            PlaySwordSwingSound();
+        }
+    }
+
+    void FireFireball()
+    {
+        if (canMove == true)
+        {
+            Vector2 fireDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - fireballSpawnPoint.position;
+            fireDirection.Normalize();
+
+            GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+            fireball.GetComponent<Rigidbody2D>().velocity = fireDirection * fireballSpeed;
+
+            float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
+            fireball.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+    }
+    /*void OnFire()
     {
         animator.SetTrigger("swordAttack");
         PlaySwordSwingSound();
-    }
+    }*/
 
     void LockMovement()
     {
